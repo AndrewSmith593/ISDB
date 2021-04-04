@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+* {
+  /* border: 1px solid red; */
+}
+
+.nav-link,
+.navbar-brand {
+  color: #eff1ea !important;
+}
+
+.creator-section {
+  border: 2px dotted #eff1ea;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.creator-section-pic {
+  justify-self: flex-end;
+  width: 100px;
+  height: 100px;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+  background-color: #2b3237 !important;
+  color: #eff1ea !important;
+  border-bottom: 2px dotted #eff1ea;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: row;
+  border: 2px dotted #eff1ea;
+}
+
+#sandwich-creator {
+  margin: 10px;
+  display: inline-block;
+  width: 30%;
+}
+
+#sandwich-visualizer {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+}
+
+.ingredient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+width: 600px;
+  height: 100px;
+  /* border: 1px solid #eff1ea; */
+  margin: 5px 0px 5px 0px;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: 5%;
+  object-fit: contain;
+}
+
+.topBread {
+	z-index: 100;
+}
+
+.ingredImg {
+	object-fit: contain;
+}
+
+.bottomBread {
+	z-index: -100;
+}
+
+#nutrition-facts {
+  display: flex;
+
+  flex-direction: column;
+  border: 2px dotted #eff1ea;
+  padding: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #eff1ea;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  color: #2b3237;
+  background-color: #eff1ea;
+}
+
+/* MENU PAGE STYLES */
+
+#menu-container {
+  max-width: 1335px;
+  margin: 0 auto;
+}
+.menu-row {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: aqua; */
+  height: 400px;
+}
+
+.sandwich-card-img {
+  height: 70%;
+  object-fit: cover;
+}
+
+.card-body {
+  border-radius: 5px;
+  color: #eff1ea;
+  background-color: #2b3237;
+  border: 1px solid #eff1ea;
+}
+
+.edit-sand-btn {
+  columns: #2b3237 !important;
+  background-color: #eff1ea;
+}
+
+.menu-item {
+  height: 80%;
+  flex-basis: 20%;
+  -ms-flex: auto;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* HOME PAGE STYLES */
+
+#homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 600px;
+  padding: 10px;
+  border: 2px dotted #eff1ea;
+}
+
+#login-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  padding: 10px;
+  border: 2px dotted #eff1ea;
+}
+.formInput {
+  margin: 10px;
+}
+
+/* SANDWICH COLLAPSE ANIMATION */
+/* * {
+  border: 1px solid red;
+}    
+
+body {
+  height: 700px;
+    width: 700px;
+      font: 1em sans-serif;
+      text-align: center;
+      
+  } */
+
+/* #container {
+  position: absolute;
+  top: 300px;
+  width:100%;
+  height: 1000px;
+    display: flex;
+  flex-direction: column;
+align-content: flex-end;
+  align-self: center;
+} */
+
+.stage {
+  border-top: 3px solid #444;
+  display: flex;
+  /*         height: 30px; */
+  width: 100%;
+}
+/* .box {
+  margin: 1px;
+  border: 1px solid black;
+  align-self: flex-end;
+  background-color: #f44336;
+  height: 5%;
+  margin: 0 auto 0 auto;
+  animation-duration: 2s;
+  animation-iteration-count: 4;
+  transform-origin: 5%;
+  width: 30%;
+} */
+
+.bounce-1 {
+  animation-name: bounce-1;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+@keyframes bounce-1 {
+  0% {
+    transform: translateY(-600%);
+  }
+  100% {
+    transform: translateY(-0%);
+  }
+}
+
+.bounce-2 {
+  animation-name: bounce-2;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+@keyframes bounce-2 {
+  0% {
+    transform: translateY(-400%);
+  }
+  100% {
+    transform: translateY(-0%);
+  }
+}
+
+.bounce-3 {
+  animation-name: bounce-3;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+}
+@keyframes bounce-3 {
+  0% {
+    transform: translateY(-200%);
+  }
+  100% {
+    transform: translateY(-0%);
+  }
+}
