@@ -12,7 +12,7 @@ function makeIngredient(container, ingredientCategory, ingredientName) {
 	document.querySelector("#" + container).appendChild(ingredient);
 	sandwichDetails.push(ingredientName);
 	return ingredient;
-
+	//TEST comment for GIT
 }
 
 function addBread() {
