@@ -5,14 +5,15 @@
 let sandwichDetails = [];
 
 
-function makeIngredient(container, ingredientCategory, ingredientName) {
-	let ingredient = document.createElement("INGREDIENT");
-	ingredient.classList.add(ingredientCategory, "ingredient");
+function makeIngredient(container, ingredientType, ingredientName) {
+	let ingredient = document.createElement("ingredient");
+	ingredient.classList.add(ingredientType);
+	ingredient.setAttribute("id", ingredientName)
 	//ingredient.innerHTML += ingredientName;
 	document.querySelector("#" + container).appendChild(ingredient);
 	sandwichDetails.push(ingredientName);
 	return ingredient;
-	//TEST comment for GIT
+
 }
 
 function addBread() {
@@ -24,11 +25,11 @@ function addBread() {
 	makeIngredient("sandwichBox", "bread", breadType)
 
 	var topBreadImg = document.createElement("img");
-	topBreadImg.src = "./images/whitebread.png";
+	topBreadImg.src = "./images/ingredients/whitebread.png";
 	topBreadImg.classList.add("ingredImg", "topBread")
 
 	var bottomBreadImg = document.createElement("img");
-	bottomBreadImg.src = "./images/whitebread.png";
+	bottomBreadImg.src = "./images/ingredients/whitebread.png";
 	bottomBreadImg.classList.add("ingredImg", "bottomBread")
 
 	var breadElems = document.getElementsByClassName("bread")
@@ -36,6 +37,67 @@ function addBread() {
 	breadElems[0].appendChild(topBreadImg);
 	breadElems[1].appendChild(bottomBreadImg);
 }
+
+/*
+Make a function that takes an array of strings. These strings will be identical to the 
+file names of the ingredient pictures minus the ".png".
+
+The function will perform the logic that addSauce performs on each hard coded ingredient
+but it will apply the logic to each string passed in via a loop over the ingredient array.
+
+The logic it will apply to each ingredient inside the loop is:
+-an if statement determining if the element (checkbox) of id equal 
+to the ingredient string has already been checked AND if the sandwichDetails array
+does not include the ingredient string
+	-if these statements are both true, makeIngredient will be called with "breadBox",
+	the name of the ingredient type ("sauce"), and the ingredient string,
+		-makeIngredient with these arguments passed to it will be appended as a child
+		to the breadBox
+		
+	Then create an img element, assigns the most recently added ingredient name
+		as the image source, adds the class "ingredImg" to the img
+		then, selects all the elements with class "sauce"
+		then, selects the first element in the sauceElem array, and appends the image
+		as a child to the element
+		
+		**I want to change this part of the method, so that when I am using the loop based
+			ingredient adding method, there will be and ID assigned to the element equal to 
+			the name of the ingredient string,
+			then, instead of selecting all elements with the class "sauce" and then selecting
+			the first of that array to append the image to,
+			I will select the element with the ID equal to the ingredient string, and
+			append the image to that element
+			
+	var sauceImg = document.createElement("img");
+	sauceImg.src = "./images/ingredients/" + sandwichDetails[2] + ".png";
+	sauceImg.classList.add("ingredImg");
+	var sauceElem = document.getElementsByClassName("sauce");
+	sauceElem[0].appendChild(sauceImg);
+	
+		
+*/
+
+//addIngredient takes the ingredient array and type, then creates the ingredient element,
+//adds the corresponding image to it, and puts it in the breadBox
+function addIngredient(ingredientArray, ingredientType) {
+	// Loop through the ingredient array
+	for (i = 0; i < ingredientArray.length; i++) {
+		let ingredient = ingredientArray[i];
+		//if a certain ingredient checkbox is checked, and that ingredient isn't already on the sandwich...
+		if ($("#" + ingredient).checked && !sandwichDetails.includes(ingredient)) {
+			//then make that ingredient element, append it to breadBox
+			breadBox.appendChild(makeIngredient("breadBox", ingredientType, ingredient))
+			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
+			var ingredImage = document.createElement("img");
+			ingredImage.src = "./images/ingredients/" + ingredient + ".png";
+			ingredImage.classList.add("ingredImg");
+			//and append the image to the ingredient element
+			var ingredElem = $("#" + ingredient);
+			ingredElem.appendChild(ingredImage);
+		}
+	}
+}
+
 
 function addSauce() {
 	let breadBox = document.getElementById("breadBox")
@@ -55,15 +117,15 @@ function addSauce() {
 	) {
 		breadBox.appendChild(makeIngredient("breadBox", "sauce", "Sriracha"))
 	}
-	
+
 	console.log(sandwichDetails[2])
-	
+
 	var sauceImg = document.createElement("img");
-	sauceImg.src = "./images/" + sandwichDetails[2] + ".png";
+	sauceImg.src = "./images/ingredients/" + sandwichDetails[2] + ".png";
 	sauceImg.classList.add("ingredImg");
 	var sauceElem = document.getElementsByClassName("sauce");
 	sauceElem[0].appendChild(sauceImg);
-	
+
 }
 
 
