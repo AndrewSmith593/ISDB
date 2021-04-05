@@ -220,7 +220,16 @@ function addVeggie(){
 	}
 }*/
 
-
+function uppercase(str)
+	{
+	  var array1 = str.split(',');
+	  var newarray1 = [];
+	    
+	  for(var x = 0; x < array1.length; x++){
+	      newarray1.push(array1[x].charAt(0).toUpperCase()+array1[x].slice(1));
+	  }
+	  return newarray1.join(', ');
+	}
 
 function saveSandwich() {
 
@@ -237,6 +246,8 @@ function saveSandwich() {
 	}
 
 	let ingredientString = sandwichDetails.slice(2).join(",");
+	
+	let formattedIngreds = uppercase(ingredientString);
 
 	let ingredientCount = 0;
 
@@ -280,7 +291,7 @@ function saveSandwich() {
 		"url": "/api/v1/sandwich",
 		"data": JSON.stringify({
 			"name": `${sandwichDetails[0]}`,
-			"ingredients": ingredientString,
+			"ingredients": formattedIngreds,
 			"creatorId": currentUserId,
 			"shared": true,
 			"sTypeId": 3
