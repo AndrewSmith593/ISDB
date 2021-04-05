@@ -27,11 +27,41 @@ body {
 	background-color: #2b3237;
 	margin: 0px;
 }
+
+.optionbox {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 2px;
+}
+
+.optionbox div {
+	aspect-ratio: 3/1;
+	margin: 2px;
+}
+
+.sectiontitlebox {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.sectiontitle {
+	text-decoration: underline;
+}
+
+.creator-section-pic {
+	border-radius: 50%;
+	margin: 3px 0px 3px 0px;
+}
+
 /* .ingredient {
 object-fit: contain;
 } */
 .ingredImg {
-width: 475px;
+	width: 475px;
 }
 </style>
 </head>
@@ -65,7 +95,11 @@ width: 475px;
 		<section id="sandwich-creator">
 			<form action="">
 				<div class="creator-section">
-					<h3>Bread</h3>
+					<div class="sectiontitlebox">
+						<h3 class="sectiontitle">Bread</h3>
+						<img class="creator-section-pic" src="images/bread.jpg" alt="" />
+					</div>
+					<!-- <h3 style="text-decoration: underline">Bread</h3> -->
 					<select onchange="addBread()" id="bread-select"
 						class="form-select creator-section"
 						aria-label="Default select example">
@@ -73,93 +107,314 @@ width: 475px;
 						<option value="White">White</option>
 						<option value="Wheat">Wheat</option>
 						<option value="Sourdough">Sourdough</option>
-					</select> <img class="creator-section-pic" src="images/bread.jpg" alt="" />
+					</select>
+				</div>
+				<div style="overflow: auto" class="creator-section">
+					<div class="sectiontitlebox">
+						<h3 class="sectiontitle">Sauces</h3>
+						<img class="creator-section-pic" src="./images/sauces.png" alt="" />
+					</div>
+
+					<div class="optionbox">
+
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Mayo" id="mayo" /> <label
+								class="form-check-label" for="flexCheckDefault"> Mayo </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Mustard" id="mustard" /> <label
+								class="form-check-label" for="flexCheckDefault"> Mustard
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Sriracha" id="sriracha" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Sriracha </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Butter" id="butter" /> <label
+								class="form-check-label" for="flexCheckDefault"> Butter
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Cranberry Sauce" id="cranberrysauce" />
+							<label class="form-check-label" for="flexCheckDefault">
+								Cranberry Sauce </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Gravy" id="gravy" /> <label
+								class="form-check-label" for="flexCheckDefault"> Gravy </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Hummus" id="hummus" /> <label
+								class="form-check-label" for="flexCheckDefault"> Hummus
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Jelly" id="jelly" /> <label
+								class="form-check-label" for="flexCheckDefault"> Jelly </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Ketchup" id="ketchup" /> <label
+								class="form-check-label" for="flexCheckDefault"> Ketchup
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Marinara" id="marinara" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Marinara </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Marshmallow Creme" id="marshmallowcreme" />
+							<label class="form-check-label" for="flexCheckDefault">
+								Marshmallow Creme </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Oil and Vinegar" id="oilandvinegar" /> <label
+								class="form-check-label" for="flexCheckDefault"> Oil and
+								Vinegar </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Peanut Butter" id="peanutbutter" /> <label
+								class="form-check-label" for="flexCheckDefault"> Peanut
+								Butter </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Powdered Sugar" id="powderedsugar" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Powdered Sugar </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Russian Dressing" id="russiandressing" />
+							<label class="form-check-label" for="flexCheckDefault">
+								Russian Dressing </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="Tartar Sauce" id="tartarsauce" /> <label
+								class="form-check-label" for="flexCheckDefault"> Tartar
+								Sauce </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addSauce()" class="form-check-input"
+								type="checkbox" value="BBQ Sauce" id="barbecuesauce" /> <label
+								class="form-check-label" for="flexCheckDefault"> BBQ
+								Sauce </label>
+						</div>
+
+					</div>
+
 				</div>
 				<div class="creator-section">
-					<h3>Sauces</h3>
+					<div class="sectiontitlebox">
+						<h3 class="sectiontitle">Protein</h3>
+						<img class="creator-section-pic" src="./images/meats.png" alt="" />
+					</div>
+					<div class="optionbox">
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="ham" /> <label
+								class="form-check-label" for="flexCheckDefault"> Ham </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="turkey" /> <label
+								class="form-check-label" for="flexCheckDefault"> Turkey
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="roastbeef" /> <label
+								class="form-check-label" for="flexCheckDefault"> Roast
+								Beef </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="bacon" /> <label
+								class="form-check-label" for="flexCheckDefault"> Bacon </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="beefpatty" /> <label
+								class="form-check-label" for="flexCheckDefault"> Beef
+								Patty </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="bologna" /> <label
+								class="form-check-label" for="flexCheckDefault"> Bologna
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="ham" /> <label
+								class="form-check-label" for="flexCheckDefault"> Chicken
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="friedchicken" /> <label
+								class="form-check-label" for="flexCheckDefault"> Fried
+								Chicken </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="friedegg" /> <label
+								class="form-check-label" for="flexCheckDefault"> Fried
+								Egg </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="hardboiledeggs" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Hardboiled Eggs </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="scrambledeggs" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Scrambled Eggs </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="friedfish" /> <label
+								class="form-check-label" for="flexCheckDefault"> Fried
+								Fish </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="friedshrimp" /> <label
+								class="form-check-label" for="flexCheckDefault"> Fried
+								Shrimp </label>
+						</div>
 
-					<div class="form-check">
-						<input onclick="addSauce()" class="form-check-input"
-							type="checkbox" value="Mayo" id="mayo" /> <label
-							class="form-check-label" for="flexCheckDefault"> Mayo </label>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="lobstersalad" /> <label
+								class="form-check-label" for="flexCheckDefault"> Lobster
+								Salad </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="meatballs" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Meatballs </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="mortadella" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Mortadella </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="prosciutto" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Prosciutto </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="salami" /> <label
+								class="form-check-label" for="flexCheckDefault"> Salami
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="schnitzel" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Schnitzel </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="shreddedpork" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Shredded Pork </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="sloppyjoemeat" /> <label
+								class="form-check-label" for="flexCheckDefault"> Sloppy
+								Joe </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="taylorham" /> <label
+								class="form-check-label" for="flexCheckDefault"> Taylor
+								Ham </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addProtein()" class="form-check-input"
+								type="checkbox" value="" id="tunasalad" /> <label
+								class="form-check-label" for="flexCheckDefault"> Tuna
+								Salad </label>
+						</div>
 					</div>
-					<div class="form-check">
-						<input onclick="addSauce()" class="form-check-input"
-							type="checkbox" value="Mustard" id="mustard" /> <label
-							class="form-check-label" for="flexCheckDefault"> Mustard
-						</label>
-					</div>
-					<div class="form-check">
-						<input onclick="addSauce()" class="form-check-input"
-							type="checkbox" value="Sriracha" id="sriracha" /> <label
-							class="form-check-label" for="flexCheckDefault"> Sriracha
-						</label>
-					</div>
-					<img class="creator-section-pic" src="./images/sauces.png" alt="" />
+
 				</div>
 				<div class="creator-section">
-					<h3>Protein</h3>
-
-					<div class="form-check">
-						<input onclick="addProtein()" class="form-check-input"
-							type="checkbox" value="" id="ham" /> <label
-							class="form-check-label" for="flexCheckDefault"> Ham </label>
+					<div class="sectiontitlebox">
+						<h3 class="sectiontitle">Cheese</h3>
+						<img class="creator-section-pic" src="./images/cheese.png" alt="" />
 					</div>
-					<div class="form-check">
-						<input onclick="addProtein()" class="form-check-input"
-							type="checkbox" value="" id="turkey" /> <label
-							class="form-check-label" for="flexCheckDefault"> Turkey </label>
+					<div class="optionbox">
+						<div class="form-check">
+							<input onclick="addCheese()" class="form-check-input"
+								type="checkbox" value="" id="cheddar" /> <label
+								class="form-check-label" for="flexCheckDefault"> Cheddar
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addCheese()" class="form-check-input"
+								type="checkbox" value="" id="swiss" /> <label
+								class="form-check-label" for="flexCheckDefault"> Swiss </label>
+						</div>
+						<div class="form-check">
+							<input onclick="addCheese()" class="form-check-input"
+								type="checkbox" value="" id="provolone" /> <label
+								class="form-check-label" for="flexCheckDefault">
+								Provolone </label>
+						</div>
 					</div>
-					<div class="form-check">
-						<input onclick="addProtein()" class="form-check-input"
-							type="checkbox" value="" id="roastbeef" /> <label
-							class="form-check-label" for="flexCheckDefault"> Roast
-							Beef </label>
-					</div>
-					<img class="creator-section-pic" src="./images/meats.png" alt="" />
 				</div>
 				<div class="creator-section">
-					<h3>Cheese</h3>
-
-					<div class="form-check">
-						<input onclick="addCheese()" class="form-check-input"
-							type="checkbox" value="" id="cheddar" /> <label
-							class="form-check-label" for="flexCheckDefault"> Cheddar
-						</label>
+					<div class="sectiontitlebox">
+						<h3 class="sectiontitle">Veggies</h3>
+						<img class="creator-section-pic" src="./images/veggies.png" alt="" />
 					</div>
-					<div class="form-check">
-						<input onclick="addCheese()" class="form-check-input"
-							type="checkbox" value="" id="swiss" /> <label
-							class="form-check-label" for="flexCheckDefault"> Swiss </label>
+					<div class="optionbox">
+						<div class="form-check">
+							<input onclick="addVeggie()" class="form-check-input"
+								type="checkbox" value="" id="lettuce" /> <label
+								class="form-check-label" for="flexCheckDefault"> Lettuce
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addVeggie()" class="form-check-input"
+								type="checkbox" value="" id="tomato" /> <label
+								class="form-check-label" for="flexCheckDefault"> Tomato
+							</label>
+						</div>
+						<div class="form-check">
+							<input onclick="addVeggie()" class="form-check-input"
+								type="checkbox" value="" id="onion" /> <label
+								class="form-check-label" for="flexCheckDefault"> Onion </label>
+						</div>
 					</div>
-					<div class="form-check">
-						<input onclick="addCheese()" class="form-check-input"
-							type="checkbox" value="" id="provolone" /> <label
-							class="form-check-label" for="flexCheckDefault">
-							Provolone </label>
-					</div>
-					<img class="creator-section-pic" src="./images/cheese.png" alt="" />
-				</div>
-				<div class="creator-section">
-					<h3>Veggies</h3>
-
-					<div class="form-check">
-						<input onclick="addVeggie()" class="form-check-input"
-							type="checkbox" value="" id="lettuce" /> <label
-							class="form-check-label" for="flexCheckDefault"> Lettuce
-						</label>
-					</div>
-					<div class="form-check">
-						<input onclick="addVeggie()" class="form-check-input"
-							type="checkbox" value="" id="tomato" /> <label
-							class="form-check-label" for="flexCheckDefault"> Tomato </label>
-					</div>
-					<div class="form-check">
-						<input onclick="addVeggie()" class="form-check-input"
-							type="checkbox" value="" id="onion" /> <label
-							class="form-check-label" for="flexCheckDefault"> Onion </label>
-					</div>
-					<img class="creator-section-pic" src="./images/veggies.png" alt="" />
 				</div>
 				<div class="creator-section">
 					<label for="sandwich-name">Name your sandwich:</label> <input
