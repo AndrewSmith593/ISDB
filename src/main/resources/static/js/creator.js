@@ -3,11 +3,14 @@
  */
 
 let sandwichDetails = [];
-
+const sauceArray = ["mayo", "mustard", "sriracha"];
+const proteinArray = ["ham", "turkey", "roastbeef"];
+const cheeseArray = ["cheddar", "swiss", "provolone"];
+const veggieArray = ["lettuce", "tomato", "onion"];
 
 function makeIngredient(container, ingredientType, ingredientName) {
-	let ingredient = document.createElement("ingredient");
-	ingredient.classList.add(ingredientType);
+	let ingredient = document.createElement("INGREDIENT");
+	ingredient.classList.add(ingredientType, "ingredient");
 	ingredient.setAttribute("id", ingredientName)
 	//ingredient.innerHTML += ingredientName;
 	document.querySelector("#" + container).appendChild(ingredient);
@@ -80,26 +83,52 @@ does not include the ingredient string
 //addIngredient takes the ingredient array and type, then creates the ingredient element,
 //adds the corresponding image to it, and puts it in the breadBox
 function addIngredient(ingredientArray, ingredientType) {
+	let zIndex = (sandwichDetails.length) * -1
+	console.log("addIngredient went off")
 	// Loop through the ingredient array
 	for (i = 0; i < ingredientArray.length; i++) {
 		let ingredient = ingredientArray[i];
+		console.log(ingredient)
 		//if a certain ingredient checkbox is checked, and that ingredient isn't already on the sandwich...
-		if ($("#" + ingredient).checked && !sandwichDetails.includes(ingredient)) {
+		if (document.getElementById(ingredient).checked && !sandwichDetails.includes(ingredient)) {
+			console.log("you chose " + ingredient)
 			//then make that ingredient element, append it to breadBox
-			breadBox.appendChild(makeIngredient("breadBox", ingredientType, ingredient))
+			let newIngredient = makeIngredient("breadBox", ingredientType, ingredient)
+			
+			breadBox.appendChild(newIngredient)
 			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
 			var ingredImage = document.createElement("img");
+			ingredImage.style.zIndex = zIndex;
 			ingredImage.src = "./images/ingredients/" + ingredient + ".png";
 			ingredImage.classList.add("ingredImg");
 			//and append the image to the ingredient element
-			var ingredElem = $("#" + ingredient);
-			ingredElem.appendChild(ingredImage);
+			//var ingredElem = document.getElementById(ingredient);
+			//var ingredElems = document.getElementsByClassName("sauce");
+
+			newIngredient.appendChild(ingredImage);
+			return;
 		}
 	}
 }
 
 
-function addSauce() {
+function addSauce(){
+	addIngredient(sauceArray, "sauce");
+}
+
+function addProtein(){
+	addIngredient(proteinArray, "protein");
+}
+
+function addCheese(){
+	addIngredient(cheeseArray, "cheese");
+}
+
+function addVeggie(){
+	addIngredient(veggieArray, "veggie");
+}
+
+/*function addSauce() {
 	let breadBox = document.getElementById("breadBox")
 	if (
 		document.getElementById("mayo").checked &&
@@ -126,10 +155,10 @@ function addSauce() {
 	var sauceElem = document.getElementsByClassName("sauce");
 	sauceElem[0].appendChild(sauceImg);
 
-}
+}*/
 
 
-function addProtein() {
+/*function addProtein() {
 	let breadBox = document.getElementById("breadBox")
 	if (
 		document.getElementById("ham").checked &&
@@ -147,9 +176,9 @@ function addProtein() {
 	) {
 		breadBox.appendChild(makeIngredient("breadBox", "protein", "Roast Beef"))
 	}
-}
+}*/
 
-function addCheese() {
+/*function addCheese() {
 	let breadBox = document.getElementById("breadBox")
 	if (
 		document.getElementById("cheddar").checked &&
@@ -167,9 +196,9 @@ function addCheese() {
 	) {
 		breadBox.appendChild(makeIngredient("breadBox", "cheese", "Provolone"))
 	}
-}
+}*/
 
-function addVeggies() {
+/*function addVeggies() {
 	let breadBox = document.getElementById("breadBox")
 	if (
 		document.getElementById("lettuce").checked &&
@@ -187,7 +216,7 @@ function addVeggies() {
 	) {
 		breadBox.appendChild(makeIngredient("breadBox", "veggies", "Onion"))
 	}
-}
+}*/
 
 
 
