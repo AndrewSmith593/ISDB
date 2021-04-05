@@ -11,15 +11,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import com.example.demo.sandwich.Sandwich;
+import com.example.demo.sandwich.SandwichRepository;
+
 @Service
 public class UserService {
 
 	private final UserRepository userRepository;
+	private final SandwichRepository sandwichRepository;
 
 	@Autowired
-	public UserService(UserRepository userRepository) {
+	public UserService(UserRepository userRepository,
+			SandwichRepository sandwichRepository) {
 		super();
 		this.userRepository = userRepository;
+		this.sandwichRepository = sandwichRepository;
 	}
 
 	@GetMapping
@@ -51,6 +57,11 @@ public class UserService {
 					"User with id " + userId + " does not exist.");
 		}
 		userRepository.deleteById(userId);
+	}
+
+	public List<Sandwich> getUserSandwiches(int id) {
+		return sandwichRepository.findSandwichesByCreatorId(id);
+
 	}
 
 	// with this annotation, the entity (user) goes into a managed state

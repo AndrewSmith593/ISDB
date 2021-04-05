@@ -11,11 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.sandwich.Sandwich;
 import com.example.demo.user.User;
 import com.example.demo.user.UserService;
 
 @Controller
 public class HomeController {
+
+	public Integer currentUserId;
+	public HttpSession currentSession;
 
 	@Autowired
 	private UserService userService;
@@ -41,24 +45,39 @@ public class HomeController {
 	}
 
 	@GetMapping("/mysandwiches")
-	public String getMySandwichesPage() {
+	public String getMySandwichesPage(HttpSession session) {
+
+		session.setAttribute("currentUserSandwiches",
+				userService.getUserSandwiches(
+						(int) session.getAttribute("currentUserId")));
 		return "mysandwiches";
 	}
 
-	// @PostMapping("/")
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String processLoginRequest(HttpServletRequest request,
 			@RequestParam("username") String username,
 			@RequestParam("password") String password, Model model,
 			HttpSession session) {
 
+		currentSession = session;
+
 		User user = userService.getUserByUsername(username);
 
-		System.out.println(user.getuSandwiches().toString());
+		currentUserId = user.getId();
+		System.out.println("user.getId is: " + currentUserId);
 
+		// System.out.println(user.getuSandwiches().toString());
+
+		for (Sandwich s : user.getuSandwiches()) {
+			System.out.println(s);
+		}
+
+		// System.out.println(user.getUsername());
+		session.setAttribute("currentUser", user);
 		session.setAttribute("currentUserId", user.getId());
 
-		session.setAttribute("currentUserSandwiches", user.getuSandwiches());
+		// session.setAttribute("currentUserSandwiches",
+		// userService.getUserSandwiches(user.getId()));
 
 		if (user != null && password.equals(user.getPassword())) {
 			session.setAttribute("currentUser", user);

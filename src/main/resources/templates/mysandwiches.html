@@ -51,7 +51,7 @@ body {
 	<div id="">
 
 		<h1>My Sandwiches:</h1>
-		<!-- <p id="sandwichList" th:text="${session.currentUserSandwiches}"></p> -->
+		<p id="sandwichList" th:text="${#session.getAttribute('mySessionAttribute')}"></p>
 
 		<table>
 			<tr>
