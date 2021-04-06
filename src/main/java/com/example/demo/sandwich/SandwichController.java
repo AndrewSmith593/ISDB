@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping(path = "/api/v1/sandwich")
 public class SandwichController {
 
 	@Autowired
@@ -35,12 +35,12 @@ public class SandwichController {
 		sandwichService.addSandwich(sandwich);
 	}
 
-	@PostMapping("/api/v1/sandwich/delete/{id}")
-	public String deleteSandwich(@PathVariable("id") Integer sandwichId) {
-		System.out.println("hello from sandwich controller");
-		sandwichService.deleteSandwich(sandwichId);
-		return "mysandwiches";
-	}
+	// @PostMapping("/api/v1/sandwich/delete/{id}")
+	// public String deleteSandwich(@PathVariable("id") Integer sandwichId) {
+	// System.out.println("hello from sandwich controller");
+	// sandwichService.deleteSandwich(sandwichId);
+	// return "mysandwiches";
+	// }
 
 	@PutMapping("")
 	public void updateSandwich(@PathVariable("sandwichId") Integer sandwichId,
