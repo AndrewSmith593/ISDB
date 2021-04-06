@@ -15,7 +15,7 @@ const cheeseArray = ["cheddar", "swiss", "provolone", "americancheese", "brieche
 "gruyerecheese", "mozzarella"];
 
 const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "freshbasil", "friedonions",
-"jalapenos", "pickles", "sauerkraut", "spinach"];
+"jalapenos", "pickles", "sauerkraut", "spinach", "bananapeppers"];
 
 function makeIngredient(container, ingredientType, ingredientName) {
 	let ingredient = document.createElement("INGREDIENT");
