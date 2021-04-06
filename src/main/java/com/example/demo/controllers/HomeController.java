@@ -39,6 +39,11 @@ public class HomeController {
 		return "create";
 	}
 
+	@GetMapping("/edit")
+	public String getEditPage() {
+		return "edit";
+	}
+
 	@GetMapping("/menu")
 	public String getMenuPage() {
 		return "menu";
