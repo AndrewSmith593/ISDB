@@ -1,4 +1,6 @@
-
+/*
+ SANDWICH EDITOR
+ */
 
 let sandwichDetails = [];
 
@@ -52,44 +54,7 @@ function addBread() {
 	breadElems[1].appendChild(bottomBreadImg);
 }
 
-/*
-Make a function that takes an array of strings. These strings will be identical to the 
-file names of the ingredient pictures minus the ".png".
 
-The function will perform the logic that addSauce performs on each hard coded ingredient
-but it will apply the logic to each string passed in via a loop over the ingredient array.
-
-The logic it will apply to each ingredient inside the loop is:
--an if statement determining if the element (checkbox) of id equal 
-to the ingredient string has already been checked AND if the sandwichDetails array
-does not include the ingredient string
-	-if these statements are both true, makeIngredient will be called with "breadBox",
-	the name of the ingredient type ("sauce"), and the ingredient string,
-		-makeIngredient with these arguments passed to it will be appended as a child
-		to the breadBox
-		
-	Then create an img element, assigns the most recently added ingredient name
-		as the image source, adds the class "ingredImg" to the img
-		then, selects all the elements with class "sauce"
-		then, selects the first element in the sauceElem array, and appends the image
-		as a child to the element
-		
-		**I want to change this part of the method, so that when I am using the loop based
-			ingredient adding method, there will be and ID assigned to the element equal to 
-			the name of the ingredient string,
-			then, instead of selecting all elements with the class "sauce" and then selecting
-			the first of that array to append the image to,
-			I will select the element with the ID equal to the ingredient string, and
-			append the image to that element
-			
-	var sauceImg = document.createElement("img");
-	sauceImg.src = "./images/ingredients/" + sandwichDetails[2] + ".png";
-	sauceImg.classList.add("ingredImg");
-	var sauceElem = document.getElementsByClassName("sauce");
-	sauceElem[0].appendChild(sauceImg);
-	
-		
-*/
 
 //addIngredient takes the ingredient array and type, then creates the ingredient element,
 //adds the corresponding image to it, and puts it in the breadBox
@@ -139,95 +104,7 @@ function addVeggie(){
 	addIngredient(veggieArray, "veggie");
 }
 
-/*function addSauce() {
-	let breadBox = document.getElementById("breadBox")
-	if (
-		document.getElementById("mayo").checked &&
-		!sandwichDetails.includes("Mayo")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "sauce", "mayo"))
-	} else if (
-		document.getElementById("mustard").checked &&
-		!sandwichDetails.includes("Mustard")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "sauce", "Mustard"))
-	} else if (
-		document.getElementById("sriracha").checked &&
-		!sandwichDetails.includes("Sriracha")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "sauce", "Sriracha"))
-	}
 
-	console.log(sandwichDetails[2])
-
-	var sauceImg = document.createElement("img");
-	sauceImg.src = "./images/ingredients/" + sandwichDetails[2] + ".png";
-	sauceImg.classList.add("ingredImg");
-	var sauceElem = document.getElementsByClassName("sauce");
-	sauceElem[0].appendChild(sauceImg);
-
-}*/
-
-
-/*function addProtein() {
-	let breadBox = document.getElementById("breadBox")
-	if (
-		document.getElementById("ham").checked &&
-		!sandwichDetails.includes("Ham")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "protein", "Ham"))
-	} else if (
-		document.getElementById("turkey").checked &&
-		!sandwichDetails.includes("Turkey")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "protein", "Turkey"))
-	} else if (
-		document.getElementById("roastBeef").checked &&
-		!sandwichDetails.includes("Roast Beef")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "protein", "Roast Beef"))
-	}
-}*/
-
-/*function addCheese() {
-	let breadBox = document.getElementById("breadBox")
-	if (
-		document.getElementById("cheddar").checked &&
-		!sandwichDetails.includes("Cheddar")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "cheese", "Cheddar"))
-	} else if (
-		document.getElementById("swiss").checked &&
-		!sandwichDetails.includes("Swiss")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "cheese", "Swiss"))
-	} else if (
-		document.getElementById("provolone").checked &&
-		!sandwichDetails.includes("Provolone")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "cheese", "Provolone"))
-	}
-}*/
-
-/*function addVeggies() {
-	let breadBox = document.getElementById("breadBox")
-	if (
-		document.getElementById("lettuce").checked &&
-		!sandwichDetails.includes("Lettuce")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "veggies", "Lettuce"))
-	} else if (
-		document.getElementById("tomato").checked &&
-		!sandwichDetails.includes("Tomato")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "veggies", "Tomato"))
-	} else if (
-		document.getElementById("onion").checked &&
-		!sandwichDetails.includes("Onion")
-	) {
-		breadBox.appendChild(makeIngredient("breadBox", "veggies", "Onion"))
-	}
-}*/
 
 function uppercase(str)
 	{
@@ -294,7 +171,7 @@ function saveSandwich() {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
-		"type": "POST",
+		"type": "PUT",
 		"url": "/api/v1/sandwich",
 		"data": JSON.stringify({
 			"name": `${sandwichDetails[0]}`,

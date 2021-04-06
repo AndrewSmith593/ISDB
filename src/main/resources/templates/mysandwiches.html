@@ -14,9 +14,9 @@
 
 <script src="https://kit.fontawesome.com/0732e72a8e.js"
 	crossorigin="anonymous"></script>
-	
-	
-	
+
+
+
 <link rel="stylesheet" type="text/css" href="/css/styles.css" />
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,8 +34,7 @@ body {
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<i style="margin-right: 10px; font-size: large"
-				class="fas fa-hamburger"></i> <a class="navbar-brand"
-				href="/">ISDB</a>
+				class="fas fa-hamburger"></i> <a class="navbar-brand" href="/">ISDB</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -48,15 +47,16 @@ body {
 						aria-current="page" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="/create">Create</a>
 					</li>
-					</ul>
+				</ul>
 			</div>
 		</div>
 	</nav>
 	<div id="">
 
 		<h1>My Sandwiches:</h1>
-		<p id="sandwichList" th:text="${#session.getAttribute('mySessionAttribute')}">asdfasdf</p>
-		
+		<p id="sandwichList"
+			th:text="${#session.getAttribute('mySessionAttribute')}">asdfasdf</p>
+
 		<table>
 			<tr>
 				<th>Sandwich Name</th>
@@ -67,14 +67,22 @@ body {
 			<tr th:each="sandwich : ${session.currentUserSandwiches}">
 				<td th:text="${sandwich.name}" />
 				<td th:text="${sandwich.ingredients}" />
-				<td><form th:action=@{/edit} th:method="GET" id=""><input id="deleteButton" type="submit" value="Edit" /></form></td>
-				<td><form th:action="@{'/api/v1/sandwich/delete/' + ${sandwich.id}}" th:method="DELETE" id=""><input id="deleteButton" type="submit" value="Delete" /></form></td>
- 			</tr>
+				<td><form
+						th:action="@{'/edit/' + ${sandwich.id} + '/' + ${sandwich.name} + '/' + ${sandwich.ingredients}"
+						th:method="GET" id="">
+						<input id="deleteButton" type="submit" value="Edit" />
+					</form></td>
+				<td><form
+						th:action="@{'/api/v1/sandwich/delete/' + ${sandwich.id}}"
+						th:method="DELETE" id="">
+						<input id="deleteButton" type="submit" value="Delete" />
+					</form></td>
+			</tr>
 		</table>
 
 	</div>
-	
+
 	<script src="/js/mysandwiches.js" type="text/javascript"></script>
-	
+
 </body>
 </html>

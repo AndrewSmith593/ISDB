@@ -39,10 +39,10 @@ public class HomeController {
 		return "create";
 	}
 
-	@GetMapping("/edit")
-	public String getEditPage() {
-		return "edit";
-	}
+	// @GetMapping("/edit")
+	// public String getEditPage() {
+	// return "edit";
+	// }
 
 	@GetMapping("/menu")
 	public String getMenuPage() {
@@ -66,7 +66,7 @@ public class HomeController {
 	@PostMapping("/api/v1/sandwich/delete/{id}")
 	public String deleteSandwich(@PathVariable("id") Integer sandwichId,
 			HttpSession session) {
-		System.out.println("hello from sandwich controller");
+
 		sandwichService.deleteSandwich(sandwichId);
 
 		session.setAttribute("currentUserSandwiches",
@@ -74,6 +74,20 @@ public class HomeController {
 						(int) session.getAttribute("currentUserId")));
 
 		return "mysandwiches";
+	}
+
+	@GetMapping("/edit/{id}/{name}/{ingredients}")
+	public String getEditPage(@PathVariable("id") Integer sandwichId,
+			@PathVariable("name") String name,
+			@PathVariable("ingredients") String ingredients,
+			HttpSession session) {
+		System.out.println("hello from getEditPage in home controller");
+
+		session.setAttribute("editSandwichId", sandwichId);
+		session.setAttribute("editSandwichName", name);
+		session.setAttribute("editSandwichIngredients", ingredients);
+
+		return "edit";
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
