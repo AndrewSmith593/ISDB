@@ -5,10 +5,23 @@
  */
 
 let sandwichDetails = [];
-const sauceArray = ["mayo", "mustard", "sriracha"];
-const proteinArray = ["ham", "turkey", "roastbeef"];
-const cheeseArray = ["cheddar", "swiss", "provolone"];
-const veggieArray = ["lettuce", "tomato", "onion"];
+
+
+const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly", 
+"ketchup", "marinara", "chimichurri", "marshmallowcreme", "oilandvinegar", "peanutbutter", "powderedsugar",
+"russiandressing", "tartarsauce", "barbecuesauce"];
+
+const proteinArray = ["ham", "turkey", "roastbeef", "bacon", "beefpatty", "bologna", "chicken", 
+"friedchicken", "friedegg", "hardboiledeggs", "scrambledeggs", "friedfish", "friedshrimp", "lobstersalad",
+"lox", "meatballs", "mortadella", "capicola", "prosciutto", "salami", "schnitzel", "shreddedpork",
+"sloppyjoemeat", "taylorham", "tunasalad"];
+
+const cheeseArray = ["cheddar", "swiss", "provolone", "americancheese", "briecheese", "creamcheese", "goudacheese",
+"gruyerecheese", "mozzarella"];
+
+const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "freshbasil", "friedonions",
+"jalapenos", "pickles", "sauerkraut", "spinach"];
+
 
 function makeIngredient(container, ingredientType, ingredientName) {
 	let ingredient = document.createElement("INGREDIENT");
