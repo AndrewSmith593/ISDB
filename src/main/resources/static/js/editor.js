@@ -3,7 +3,10 @@
  */
 
 let sandwichDetails = [];
-
+let editSandwichId = document.getElementById("editSandwichId");
+let editSandwichName = document.getElementById("editSandwichName");
+let editSandwichIngredients = document.getElementById("editSandwichIngredients");
+let editSandwichIngredArr = editSandwichIngredients.split(", ");
 
 const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly", 
 "ketchup", "marinara", "chimichurri", "marshmallowcreme", "oilandvinegar", "peanutbutter", "powderedsugar",
@@ -20,6 +23,21 @@ const cheeseArray = ["cheddar", "swiss", "provolone", "americancheese", "brieche
 const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "freshbasil", "friedonions",
 "jalapenos", "pickles", "sauerkraut", "spinach"];
 
+
+function setCheckedIngredients(ingredientArr) {
+	let currentIngred = ingredientArr[i];
+	
+	for(i = 0; i < ingredientArr.length; i++){
+		if(editSandwichIngredArr.includes(currentIngred)){
+			document.getElementById(currentIngred).setAttribute("checked", "checked");
+		}
+	}
+}
+
+setCheckedIngredients(sauceArray);
+setCheckedIngredients(proteinArray);
+setCheckedIngredients(cheeseArray);
+setCheckedIngredients(veggieArray);
 
 function makeIngredient(container, ingredientType, ingredientName) {
 	let ingredient = document.createElement("INGREDIENT");
