@@ -3,7 +3,6 @@ package com.example.demo.sandwich;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/v1/sandwich")
+@RequestMapping
 public class SandwichController {
 
 	@Autowired
@@ -36,12 +35,14 @@ public class SandwichController {
 		sandwichService.addSandwich(sandwich);
 	}
 
-	@DeleteMapping(path = "{sandwichId}")
-	public void deleteSandwich(@PathVariable("sandwichId") Integer sandwichId) {
+	@PostMapping("/api/v1/sandwich/delete/{id}")
+	public String deleteSandwich(@PathVariable("id") Integer sandwichId) {
+		System.out.println("hello from sandwich controller");
 		sandwichService.deleteSandwich(sandwichId);
+		return "mysandwiches";
 	}
 
-	@PutMapping(path = "{sandwichId}")
+	@PutMapping("")
 	public void updateSandwich(@PathVariable("sandwichId") Integer sandwichId,
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String ingredients) {

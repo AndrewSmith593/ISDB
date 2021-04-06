@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.sandwich.Sandwich;
+import com.example.demo.sandwich.SandwichService;
 import com.example.demo.user.User;
 import com.example.demo.user.UserService;
 
@@ -19,10 +20,12 @@ import com.example.demo.user.UserService;
 public class HomeController {
 
 	public Integer currentUserId;
-	public HttpSession currentSession;
 
 	@Autowired
 	private UserService userService;
+
+	@Autowired
+	private SandwichService sandwichService;
 
 	@GetMapping("/")
 	public String getHomePage() {
@@ -58,8 +61,6 @@ public class HomeController {
 			@RequestParam("username") String username,
 			@RequestParam("password") String password, Model model,
 			HttpSession session) {
-
-		currentSession = session;
 
 		User user = userService.getUserByUsername(username);
 

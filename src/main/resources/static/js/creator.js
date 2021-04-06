@@ -156,8 +156,6 @@ function saveSandwich() {
 	ingredientDiv2.classList.add("bounce-2");
 	// proteinDiv3.classList.add("bounce-1");
 
-
-
 	//AJAX call to server, sending sandwich post request
 	$.ajax({
 		headers: {

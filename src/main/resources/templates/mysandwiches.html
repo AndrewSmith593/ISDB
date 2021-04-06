@@ -48,6 +48,7 @@ body {
 						aria-current="page" href="/">Home</a></li>
 					<li class="nav-item"><a class="nav-link" href="/create">Create</a>
 					</li>
+					</ul>
 			</div>
 		</div>
 	</nav>
@@ -67,9 +68,12 @@ body {
 			<tr th:each="sandwich : ${session.currentUserSandwiches}">
 				<td th:text="${sandwich.name}" />
 				<td th:text="${sandwich.ingredients}" />
-				<td><button onclick="editSandwich()" style="background-color:#499c19" class="editbtn">Edit</button></td>
-				<td><button onclick="deleteSandwich()" style="background-color:#9c1919" class="deletebtn">Delete</button></td>
-			</tr>
+				<td><form th:action="@{'/api/v1/sandwich/delete/' + ${sandwich.id}}" th:method="DELETE" id="login-box"><input id="deleteButton" type="submit" value="Delete" /></form></td>
+				<td></td>
+				<!-- <a href="#" th:action=@{/api/v1/sandwich} th:method="DELETE" th:href="@{/deleteSandwich(id=${sandwich.id})}" >Delete</a> -->
+ <!-- <button th:onclick="@{HomeController.deleteSandwich(id=${sandwich.id})}" style="background-color:#9c1919" class="deletebtn">Delete</button> -->
+ 
+ 			</tr>
 		</table>
 
 
