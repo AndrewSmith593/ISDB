@@ -76,7 +76,7 @@ public class HomeController {
 		return "mysandwiches";
 	}
 
-	@GetMapping("/edit/{id}/{name}/{ingredients}")
+	@PostMapping("/api/v1/sandwich/edit/{sandwichId}/{name}/{ingredients}")
 	public String getEditPage(@PathVariable("id") Integer sandwichId,
 			@PathVariable("name") String name,
 			@PathVariable("ingredients") String ingredients,
