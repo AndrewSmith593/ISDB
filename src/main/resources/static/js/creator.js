@@ -61,11 +61,12 @@ function addBread() {
 
 function addIngredient(ingredientArray, ingredientType) {
 	let zIndex = (sandwichDetails.length)
-	console.log("addIngredient went off")
+	
 	// Loop through the ingredient array
 	for (i = 0; i < ingredientArray.length; i++) {
 		let ingredient = ingredientArray[i];
 		console.log(ingredient)
+		
 		//if a certain ingredient checkbox is checked, and that ingredient isn't already on the sandwich...
 		if (document.getElementById(ingredient).checked && !sandwichDetails.includes(ingredient)) {
 			console.log("you chose " + ingredient)
@@ -78,6 +79,7 @@ function addIngredient(ingredientArray, ingredientType) {
 			ingredImage.style.zIndex = zIndex;
 			ingredImage.src = "./images/ingredients/" + ingredient + ".png";
 			ingredImage.classList.add("ingredImg");
+			
 			//and append the image to the ingredient element
 			//var ingredElem = document.getElementById(ingredient);
 			//var ingredElems = document.getElementsByClassName("sauce");
@@ -133,7 +135,7 @@ function saveSandwich() {
 		console.log("sandwich NOT shared")
 	}
 
-	let ingredientString = sandwichDetails.slice(2).join(",");
+	let ingredientString = sandwichDetails.slice(1).join(",");
 
 	let formattedIngreds = uppercase(ingredientString);
 

@@ -2,11 +2,14 @@
  SANDWICH EDITOR
  */
 
+$(document).ready(function(){
+
+console.log("hi from editorjs2")
 let sandwichDetails = [];
 let editSandwichId = document.getElementById("editSandwichId");
 let editSandwichName = document.getElementById("editSandwichName");
 let editSandwichIngredients = document.getElementById("editSandwichIngredients").innerHTML;
-let editSandwichIngredArr = editSandwichIngredients.split(", ");
+let editSandwichIngredArr = editSandwichIngredients.split(", ").map(ing => ing.toLowerCase());
 
 const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly", 
 "ketchup", "marinara", "chimichurri", "marshmallowcreme", "oilandvinegar", "peanutbutter", "powderedsugar",
@@ -23,11 +26,12 @@ const cheeseArray = ["cheddar", "swiss", "provolone", "americancheese", "brieche
 const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "freshbasil", "friedonions",
 "jalapenos", "pickles", "sauerkraut", "spinach"];
 
+//console.log(editSandwichName)
+console.log(editSandwichIngredArr)
 
 function setCheckedIngredients(ingredientArr) {
-	let currentIngred = ingredientArr[i];
-	
 	for(i = 0; i < ingredientArr.length; i++){
+	let currentIngred = ingredientArr[i];
 		if(editSandwichIngredArr.includes(currentIngred)){
 		console.log("found the ingredient" + currentIngred)
 			document.getElementById(currentIngred).setAttribute("checked", "checked");
@@ -190,7 +194,7 @@ function saveSandwich() {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
-		"type": "PUT",
+		"type": "POST",
 		"url": "/api/v1/sandwich",
 		"data": JSON.stringify({
 			"name": `${sandwichDetails[0]}`,
@@ -207,3 +211,4 @@ function saveSandwich() {
 
 	console.log(document.getElementById("sandwich-description").innerHTML);
 }
+})

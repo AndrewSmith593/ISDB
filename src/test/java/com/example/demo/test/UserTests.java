@@ -1,12 +1,11 @@
 package com.example.demo.test;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.anyObject;
-import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.anyString;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -49,7 +48,7 @@ public class UserTests {
 
 		Mockito.when(userRepository.save(anyObject())).thenReturn(new User(
 				"TestUser3", "bob@email.com", "pass3", emptySandwichList));
-		Optional<User> actual = userService.addUser(new User());
+		User actual = userService.addUser(new User());
 		User expected = new User("TestUser3", "bob@email.com", "pass3",
 				emptySandwichList);
 		assertEquals(expected, actual);

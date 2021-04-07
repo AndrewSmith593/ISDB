@@ -2,7 +2,6 @@ package com.example.demo.user;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,13 +38,13 @@ public class UserService {
 	}
 
 	@PostMapping
-	public Optional<User> addUser(User user) {
-		Optional<User> userById = userRepository.findUserById(user.getId());
+	public User addUser(User user) {
+		User userById = userRepository.findUserById(user.getId());
 		// if the user is already in the db, throw exception
-		if (userById.isPresent()) {
-			throw new IllegalStateException(
-					"That user is already in the database.");
-		}
+		// if (userById != null) {
+		// throw new IllegalStateException(
+		// "That user is already in the database.");
+		// }
 		userRepository.save(user);
 		return userById;
 	}

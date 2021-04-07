@@ -141,10 +141,10 @@ public class User {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return String.format("%3s %15s %20s %10.2f", id, username, email,
-				password);
-	}
+	// @Override
+	// public String toString() {
+	// return String.format("%3s %15s %20s %10.2f", id, username, email,
+	// password);
+	// }
 
 }
