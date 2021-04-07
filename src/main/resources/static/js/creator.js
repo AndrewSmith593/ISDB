@@ -3,20 +3,22 @@
 let sandwichDetails = [];
 
 
-const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly", 
-"ketchup", "marinara", "chimichurri", "marshmallowcreme", "oilandvinegar", "peanutbutter", "powderedsugar",
-"russiandressing", "tartarsauce", "barbecuesauce"];
+const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly",
+	"ketchup", "marinara", "chimichurri", "marshmallowcreme", "oilandvinegar", "peanutbutter",
+	"russiandressing", "tartarsauce", "barbecuesauce"];
 
-const proteinArray = ["ham", "turkey", "roastbeef", "bacon", "beefpatty", "bologna", "chicken", 
-"friedchicken", "friedegg", "hardboiledeggs", "scrambledeggs", "friedfish", "friedshrimp", "lobstersalad",
-"lox", "meatballs", "mortadella", "capicola", "prosciutto", "salami", "schnitzel", "shreddedpork",
-"sloppyjoemeat", "taylorham", "tunasalad"];
+const proteinArray = ["ham", "turkey", "roastbeef", "bacon", "beefpatty", "bologna", "chicken",
+	"friedchicken", "friedegg", "hardboiledeggs", "scrambledeggs", "friedfish", "friedshrimp", "lobstersalad",
+	"lox", "meatballs", "mortadella", "capicola", "prosciutto", "salami", "schnitzel", "shreddedpork",
+	"sloppyjoemeat", "taylorham", "tunasalad"];
 
 const cheeseArray = ["cheddar", "swiss", "provolone", "americancheese", "briecheese", "creamcheese", "goudacheese",
-"gruyerecheese", "mozzarella"];
+	"gruyerecheese", "mozzarella"];
 
 const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "freshbasil", "friedonions",
-"jalapenos", "pickles", "sauerkraut", "spinach"];
+	"jalapenos", "pickles", "bananapeppers", "sauerkraut", "spinach"];
+
+const otherArray = ["capers", "appleslices", "bananaslices", "frenchfries", "gardiniera", "olivesalad", "powderedsugar", "stuffing", "gravy", "mashedpotatoes"]
 
 
 function makeIngredient(container, ingredientType, ingredientName) {
@@ -105,7 +107,7 @@ function addIngredient(ingredientArray, ingredientType) {
 			console.log("you chose " + ingredient)
 			//then make that ingredient element, append it to breadBox
 			let newIngredient = makeIngredient("breadBox", ingredientType, ingredient)
-			
+
 			breadBox.appendChild(newIngredient)
 			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
 			var ingredImage = document.createElement("img");
@@ -123,19 +125,19 @@ function addIngredient(ingredientArray, ingredientType) {
 }
 
 
-function addSauce(){
+function addSauce() {
 	addIngredient(sauceArray, "sauce");
 }
 
-function addProtein(){
+function addProtein() {
 	addIngredient(proteinArray, "protein");
 }
 
-function addCheese(){
+function addCheese() {
 	addIngredient(cheeseArray, "cheese");
 }
 
-function addVeggie(){
+function addVeggie() {
 	addIngredient(veggieArray, "veggie");
 }
 
@@ -229,16 +231,15 @@ function addVeggie(){
 	}
 }*/
 
-function uppercase(str)
-	{
-	  var array1 = str.split(',');
-	  var newarray1 = [];
-	    
-	  for(var x = 0; x < array1.length; x++){
-	      newarray1.push(array1[x].charAt(0).toUpperCase()+array1[x].slice(1));
-	  }
-	  return newarray1.join(', ');
+function uppercase(str) {
+	var array1 = str.split(',');
+	var newarray1 = [];
+
+	for (var x = 0; x < array1.length; x++) {
+		newarray1.push(array1[x].charAt(0).toUpperCase() + array1[x].slice(1));
 	}
+	return newarray1.join(', ');
+}
 
 function saveSandwich() {
 
@@ -255,7 +256,7 @@ function saveSandwich() {
 	}
 
 	let ingredientString = sandwichDetails.slice(2).join(",");
-	
+
 	let formattedIngreds = uppercase(ingredientString);
 
 	let ingredientCount = 0;
