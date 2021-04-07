@@ -39,10 +39,10 @@ public class HomeController {
 		return "create";
 	}
 
-	@GetMapping("/api/v1/sandwich/edit/{id}/{name}/{ingredients}")
-	public String getEditPage() {
-		return "edit";
-	}
+	// @GetMapping("/api/v1/sandwich/edit/{id}/{name}/{ingredients}")
+	// public String getEditPage() {
+	// return "edit";
+	// }
 
 	@GetMapping("/menu")
 	public String getMenuPage() {

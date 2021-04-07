@@ -30,11 +30,29 @@ const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "fresh
 console.log(editSandwichIngredArr)
 
 function setCheckedIngredients(ingredientArr) {
+	let zIndex = (sandwichDetails.length) * -1
 	for(i = 0; i < ingredientArr.length; i++){
 	let currentIngred = ingredientArr[i];
 		if(editSandwichIngredArr.includes(currentIngred)){
 		console.log("found the ingredient" + currentIngred)
+		
 			document.getElementById(currentIngred).setAttribute("checked", "checked");
+			
+			let newIngredient = makeIngredient("breadBox", "previousIngred", currentIngred)
+			
+			breadBox.appendChild(newIngredient)
+			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
+			var ingredImage = document.createElement("img");
+			ingredImage.style.zIndex = zIndex;
+			ingredImage.src = "./images/ingredients/" + currentIngred + ".png";
+			ingredImage.classList.add("ingredImg");
+			//and append the image to the ingredient element
+			//var ingredElem = document.getElementById(ingredient);
+			//var ingredElems = document.getElementsByClassName("sauce");
+
+			newIngredient.appendChild(ingredImage);
+			return;
+			
 		}
 	}
 }

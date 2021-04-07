@@ -2,7 +2,6 @@ package com.example.demo.sandwich;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -26,15 +25,22 @@ public class SandwichService {
 		return sandwichRepository.findAll();
 	}
 
-	public void addSandwich(Sandwich sandwich) {
-		Optional<Sandwich> sandwichByName = sandwichRepository
+	@GetMapping
+	public Sandwich getSandwichByName(String name) {
+		return sandwichRepository.findSandwichByName(name);
+	}
+
+	public Sandwich addSandwich(Sandwich sandwich) {
+		Sandwich sandwichByName = sandwichRepository
 				.findSandwichByName(sandwich.getName());
 		// if the sandwich name is already in the db, throw exception
-		if (sandwichByName.isPresent()) {
-			throw new IllegalStateException(
-					"That sandwich name is already in the database. Please choose a different name.");
+		if (sandwichByName != null) {
+			throw new IllegalStateException("The sandwich name "
+					+ sandwich.getName()
+					+ " is already in the database. Please choose a different name.");
 		}
 		sandwichRepository.save(sandwich);
+		return sandwich;
 	}
 
 	public void deleteSandwich(Integer sandwichId) {
