@@ -1,10 +1,12 @@
 package com.example.demo.sandwich;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -20,17 +22,24 @@ public class Sandwich {
 	@SequenceGenerator(name = "sandwich_sequence", sequenceName = "sandwich_sequence", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sandwich_sequence")
 	private Integer id;
+
 	@NotBlank
 	@Size(min = 5, max = 50, message = "Sandwich name must be between 5 and 50 characters long.")
 	private String name;
+
 	@NotBlank
 	private String ingredients;
+
 	@NotNull
 	@JoinColumn(name = "id")
 	private Integer creatorId;
+
 	@NotNull
 	private boolean shared;
+
 	@NotNull
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "s_type_id", referencedColumnName = "id")
 	private int sTypeId;
 
 	public Sandwich(String name, String ingredients, Integer creatorId,

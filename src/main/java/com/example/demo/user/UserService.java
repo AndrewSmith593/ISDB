@@ -41,12 +41,12 @@ public class UserService {
 	public User addUser(User user) {
 		User userById = userRepository.findUserById(user.getId());
 		// if the user is already in the db, throw exception
-		// if (userById != null) {
-		// throw new IllegalStateException(
-		// "That user is already in the database.");
-		// }
+		if (userById != null) {
+			throw new IllegalStateException(
+					"That user is already in the database.");
+		}
 		userRepository.save(user);
-		return userById;
+		return user;
 	}
 
 	public void deleteUser(Integer userId) {
