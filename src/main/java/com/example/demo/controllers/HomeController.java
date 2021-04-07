@@ -76,12 +76,14 @@ public class HomeController {
 		return "mysandwiches";
 	}
 
-	@PostMapping("/api/v1/sandwich/edit/{sandwichId}/{name}/{ingredients}")
+	@PostMapping("/api/v1/sandwich/edit/{id}/{name}/{ingredients}")
 	public String getEditPage(@PathVariable("id") Integer sandwichId,
 			@PathVariable("name") String name,
 			@PathVariable("ingredients") String ingredients,
 			HttpSession session) {
 		System.out.println("hello from getEditPage in home controller");
+
+		// Integer sId = Integer.parseInt(sandwichId);
 
 		session.setAttribute("editSandwichId", sandwichId);
 		session.setAttribute("editSandwichName", name);

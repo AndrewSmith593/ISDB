@@ -100,6 +100,8 @@ overflow: auto;
 	<h3 hidden id="editSandwichIngredients"
 		th:text="${session.editSandwichIngredients}"></h3>
 		
+		<h3 value=${session.editSandwichIngredients}>${session.editSandwichIngredients}</h3>
+		
 	<div id="main-container">
 		<section id="sandwich-creator">
 			<form action="">
@@ -108,7 +110,7 @@ overflow: auto;
 						<h3 class="sectiontitle">Bread</h3>
 						<img class="creator-section-pic" src="images/bread.jpg" alt="" />
 					</div>
-					<!-- <h3 style="text-decoration: underline">Bread</h3> -->
+
 					<select onchange="addBread()" id="bread-select"
 						class="form-select creator-section"
 						aria-label="Default select example">

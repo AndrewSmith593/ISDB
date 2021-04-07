@@ -5,7 +5,7 @@
 let sandwichDetails = [];
 let editSandwichId = document.getElementById("editSandwichId");
 let editSandwichName = document.getElementById("editSandwichName");
-let editSandwichIngredients = document.getElementById("editSandwichIngredients");
+let editSandwichIngredients = document.getElementById("editSandwichIngredients").innerHTML;
 let editSandwichIngredArr = editSandwichIngredients.split(", ");
 
 const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly", 
@@ -29,6 +29,7 @@ function setCheckedIngredients(ingredientArr) {
 	
 	for(i = 0; i < ingredientArr.length; i++){
 		if(editSandwichIngredArr.includes(currentIngred)){
+		console.log("found the ingredient" + currentIngred)
 			document.getElementById(currentIngred).setAttribute("checked", "checked");
 		}
 	}

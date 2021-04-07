@@ -35,15 +35,8 @@ public class SandwichController {
 		sandwichService.addSandwich(sandwich);
 	}
 
-	// @PostMapping("/api/v1/sandwich/delete/{id}")
-	// public String deleteSandwich(@PathVariable("id") Integer sandwichId) {
-	// System.out.println("hello from sandwich controller");
-	// sandwichService.deleteSandwich(sandwichId);
-	// return "mysandwiches";
-	// }
-
-	@PutMapping("")
-	public void updateSandwich(@PathVariable("sandwichId") Integer sandwichId,
+	@PutMapping
+	public void updateSandwich(@PathVariable("id") Integer sandwichId,
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String ingredients) {
 		System.out.println("hi from updatesandwich in controller");

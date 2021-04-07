@@ -12,20 +12,14 @@
 	<groupId>com.example</groupId>
 	<artifactId>demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
-<!-- 	<hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.connection.driver_class">org.h2.Driver</property>
-        <property name="hibernate.connection.password"></property>
-        <property name="hibernate.connection.url">
-          jdbc:h2:mem:spring_hibernate_one_to_many</property>
-        <property name="hibernate.connection.username">sa</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
-        <property name="hibernate.current_session_context_class">thread</property>
-        <property name="hibernate.show_sql">true</property>
-    </session-factory>
-</hibernate-configuration> -->
-	
+
+	<!-- <hibernate-configuration> <session-factory> <property name="hibernate.connection.driver_class">org.h2.Driver</property> 
+		<property name="hibernate.connection.password"></property> <property name="hibernate.connection.url"> 
+		jdbc:h2:mem:spring_hibernate_one_to_many</property> <property name="hibernate.connection.username">sa</property> 
+		<property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property> 
+		<property name="hibernate.current_session_context_class">thread</property> 
+		<property name="hibernate.show_sql">true</property> </session-factory> </hibernate-configuration> -->
+
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -33,22 +27,14 @@
 	</properties>
 	<dependencies>
 
-<!-- I ADDED THESE 2 DEPENDENCIES VIA THE LINK FROM CHARLIE ABOUT MY SANDWICHES LIST
-AS WELL AS THE HIBERNATE CONFIG ABOVE, BUT WAS NOT ABLE TO GET WORKING SO COMMENTED OUT -->
+		<!-- I ADDED THESE 2 DEPENDENCIES VIA THE LINK FROM CHARLIE ABOUT MY SANDWICHES 
+			LIST AS WELL AS THE HIBERNATE CONFIG ABOVE, BUT WAS NOT ABLE TO GET WORKING 
+			SO COMMENTED OUT -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-	<!-- 	<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
-
-		https://mvnrepository.com/artifact/com.h2database/h2
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.4.200</version>
-			<scope>test</scope>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-core</artifactId> 
+			<version>${hibernate.version}</version> </dependency> https://mvnrepository.com/artifact/com.h2database/h2 
+			<dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> 
+			<version>1.4.200</version> <scope>test</scope> </dependency> -->
 
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
@@ -57,6 +43,22 @@ AS WELL AS THE HIBERNATE CONFIG ABOVE, BUT WAS NOT ABLE TO GET WORKING SO COMMEN
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring5</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>2.10.0</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>

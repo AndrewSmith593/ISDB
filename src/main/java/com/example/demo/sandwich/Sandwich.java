@@ -107,6 +107,57 @@ public class Sandwich {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((creatorId == null) ? 0 : creatorId.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((ingredients == null) ? 0 : ingredients.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + sTypeId;
+		result = prime * result + (shared ? 1231 : 1237);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sandwich other = (Sandwich) obj;
+		if (creatorId == null) {
+			if (other.creatorId != null)
+				return false;
+		} else if (!creatorId.equals(other.creatorId))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (ingredients == null) {
+			if (other.ingredients != null)
+				return false;
+		} else if (!ingredients.equals(other.ingredients))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (sTypeId != other.sTypeId)
+			return false;
+		if (shared != other.shared)
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Sandwich [id=" + id + ", name=" + name + ", ingredients="
 				+ ingredients + ", creatorId=" + creatorId + ", shared="

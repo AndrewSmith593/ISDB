@@ -39,7 +39,7 @@ public class UserService {
 	}
 
 	@PostMapping
-	public void addUser(User user) {
+	public Optional<User> addUser(User user) {
 		Optional<User> userById = userRepository.findUserById(user.getId());
 		// if the user is already in the db, throw exception
 		if (userById.isPresent()) {
@@ -47,6 +47,7 @@ public class UserService {
 					"That user is already in the database.");
 		}
 		userRepository.save(user);
+		return userById;
 	}
 
 	public void deleteUser(Integer userId) {

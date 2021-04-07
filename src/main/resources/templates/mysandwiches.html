@@ -68,9 +68,9 @@ body {
 				<td th:text="${sandwich.name}" />
 				<td th:text="${sandwich.ingredients}" />
 				<td><form
-						th:action="@{'/api/v1/sandwich/edit/' + ${sandwich.id} + '/' + ${sandwich.name} + '/' + ${sandwich.ingredients}"
+						th:action="@{'/api/v1/sandwich/edit/' + ${sandwich.id} + '/' + ${sandwich.name} + '/' + ${sandwich.ingredients}}"
 						th:method="POST" id="">
-						<input id="deleteButton" type="submit" value="Edit" />
+						<input id="editButton" type="submit" value="Edit" />
 					</form></td>
 				<td><form
 						th:action="@{'/api/v1/sandwich/delete/' + ${sandwich.id}}"
