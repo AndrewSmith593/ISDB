@@ -48,7 +48,8 @@ public class UserTests {
 
 		Mockito.when(userRepository.save(anyObject())).thenReturn(new User(
 				"TestUser3", "bob@email.com", "pass3", emptySandwichList));
-		User actual = userService.addUser(new User());
+		User actual = userService.addUser(new User("TestUser4",
+				"bob4@email.com", "pass4", emptySandwichList));
 		User expected = new User("TestUser3", "bob@email.com", "pass3",
 				emptySandwichList);
 		assertEquals(expected, actual);
