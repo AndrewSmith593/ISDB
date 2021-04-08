@@ -61,12 +61,12 @@ function addBread() {
 
 function addIngredient(ingredientArray, ingredientType) {
 	let zIndex = (sandwichDetails.length)
-	
+
 	// Loop through the ingredient array
 	for (i = 0; i < ingredientArray.length; i++) {
 		let ingredient = ingredientArray[i];
 		console.log(ingredient)
-		
+
 		//if a certain ingredient checkbox is checked, and that ingredient isn't already on the sandwich...
 		if (document.getElementById(ingredient).checked && !sandwichDetails.includes(ingredient)) {
 			console.log("you chose " + ingredient)
@@ -79,7 +79,7 @@ function addIngredient(ingredientArray, ingredientType) {
 			ingredImage.style.zIndex = zIndex;
 			ingredImage.src = "./images/ingredients/" + ingredient + ".png";
 			ingredImage.classList.add("ingredImg");
-			
+
 			//and append the image to the ingredient element
 			//var ingredElem = document.getElementById(ingredient);
 			//var ingredElems = document.getElementsByClassName("sauce");
@@ -108,7 +108,7 @@ function addVeggie() {
 }
 
 function addOther() {
-addIngredient(otherArray, "other");
+	addIngredient(otherArray, "other");
 }
 
 function uppercase(str) {
@@ -135,24 +135,32 @@ function saveSandwich() {
 		console.log("sandwich NOT shared")
 	}
 
-console.log(sandwichDetails)
+	console.log(sandwichDetails)
 
 	let ingredientString = sandwichDetails.slice(1).join(",");
 
 	let formattedIngreds = uppercase(ingredientString);
 
-	let ingredientCount = 0;
+	let ingredientCount = sandwichDetails.length - 1;
 
-	for (let i = 0; i < sandwichDetails.length; i++) {
+	/*for (let i = 0; i < sandwichDetails.length; i++) {
 		ingredientCount += sandwichDetails[i].split(" ").length - 1;
 		if (sandwichDetails[i].includes("Roast Beef")) {
 			ingredientCount -= 1;
 		}
-	}
+	}*/
 
 	document.getElementById(
 		"sandwich-description"
-	).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich made with ${sandwichDetails[1]}, some ${sandwichDetails[2]}, hearty ${sandwichDetails[3]}, ${sandwichDetails[4]}, and finally some ${sandwichDetails[5]}. Sounds Delicious! You used ${ingredientCount} ingredients.`;
+	).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich 
+	made with ${ingredientCount} delicious ingredients.`;
+
+
+	/*document.getElementById(
+		"sandwich-description"
+	).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich made with ${sandwichDetails[1]}, 
+	some ${sandwichDetails[2]}, hearty ${sandwichDetails[3]}, ${sandwichDetails[4]}, and finally 
+	some ${sandwichDetails[5]}. Sounds Delicious! You used ${ingredientCount} ingredients.`;*/
 
 	/*
   when an ingredient is added, it will receive an ingredient number
