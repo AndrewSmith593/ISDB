@@ -94,6 +94,11 @@ body {
 		</div>
 	</nav>
 	<h1 style="text-align: center;">Create a Sandwich!</h1>
+	<section id="message-box">
+		<p
+				style="font-size: 25px; text-align: center; margin-bottom: 20px; font-weight: bolder;"
+				id="sandwich-description"></p>
+		</section>
 	<h3 hidden id="currentUserId" th:text="${session.currentUserId}"></h3>
 	<div id="main-container">
 		<section id="sandwich-creator">
@@ -617,11 +622,10 @@ body {
 					type="button" class="btn btn-primary">Save Sandwich</button>
 			</form>
 		</section>
+		
 		<section id="sandwich-visualizer">
 
-			<p
-				style="font-size: larger; text-align: center; margin-bottom: 20px; font-weight: bolder;"
-				id="sandwich-description"></p>
+			
 
 			<div id="sandwichBox" style="align-self: center"></div>
 		</section>
