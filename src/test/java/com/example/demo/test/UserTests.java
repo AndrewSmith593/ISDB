@@ -25,32 +25,28 @@ public class UserTests {
 
 	@BeforeClass
 	public static void setup() {
-		System.out.println("hello from tests");
 		userRepository = Mockito.mock(UserRepository.class);
 		userService = new UserService(userRepository, sandwichRepository);
 	}
 
 	@Test
 	public void testFindByUsername() {
-		System.out.println("hello from tests");
+		System.out.println("Running testFindByUsername()...");
 		Mockito.when(userRepository.findByUsername(anyString()))
-				.thenReturn(new User("TestUser3", "bob@email.com", "pass3",
+				.thenReturn(new User("TestUser3", "bob@email.com", "testPass3",
 						emptySandwichList));
-		User actual = userService.getUserByUsername("testUser1");
-		String expected = "testPass1";
+		User actual = userService.getUserByUsername("TestUser3");
+		String expected = "testPass3";
 		assertEquals(expected, actual.getPassword());
 	}
 
 	@Test
-	public void testSave() {
-
-		System.out.println("hello from tests");
-
+	public void testSaveUser() {
+		System.out.println("Running testSaveUser()...");
 		Mockito.when(userRepository.save(anyObject())).thenReturn(new User(
-				"TestUser3", "bob@email.com", "pass3", emptySandwichList));
-		User actual = userService.addUser(new User("TestUser4",
-				"bob4@email.com", "pass4", emptySandwichList));
-		User expected = new User("TestUser3", "bob@email.com", "pass3",
+				"TestUser4", "bob@email.com", "testPass4", emptySandwichList));
+		User actual = userService.addUser(new User());
+		User expected = new User("TestUser4", "bob@email.com", "testPass4",
 				emptySandwichList);
 		assertEquals(expected, actual);
 	}

@@ -1,12 +1,9 @@
 package com.example.demo.sandwich;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
@@ -31,15 +28,12 @@ public class Sandwich {
 	private String ingredients;
 
 	@NotNull
-	@JoinColumn(name = "id")
 	private Integer creatorId;
 
 	@NotNull
 	private boolean shared;
 
 	@NotNull
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "s_type_id", referencedColumnName = "id")
 	private int sTypeId;
 
 	public Sandwich(String name, String ingredients, Integer creatorId,

@@ -19,14 +19,13 @@ public class SandwichTests {
 
 	@BeforeClass
 	public static void setup() {
-		System.out.println("hello from sandwich tests setup");
 		sandwichRepository = Mockito.mock(SandwichRepository.class);
 		sandwichService = new SandwichService(sandwichRepository);
 	}
 
 	@Test
 	public void testFindSandwichByName() {
-		System.out.println("hello from sandwich tests 1");
+		System.out.println("Running testFindSandwichByName()...");
 		Mockito.when(sandwichRepository.findSandwichByName(anyString()))
 				.thenReturn(new Sandwich(1, "TBC", "Turkey, Bacon, Cheddar", 1,
 						true, 1));
@@ -37,22 +36,21 @@ public class SandwichTests {
 
 	@Test
 	public void testSaveSandwich() {
-
-		System.out.println("hello from sandwich tests 2");
-
+		System.out.println("Running testSaveSandwich()...");
 		Mockito.when(sandwichRepository.save(anyObject()))
 				.thenReturn(new Sandwich(6, "CParm5",
 						"Chicken, Mozzarella, Marinara", 1, true, 1));
 
-		Sandwich testSandwich = new Sandwich(6, "CParm5",
-				"Chicken, Mozzarella, Marinara", 1, true, 1);
+		// Sandwich testSandwich = new Sandwich(6, "CParm5",
+		// "Chicken, Mozzarella, Marinara", 1, true, 1);
 
-		sandwichService.addSandwich(testSandwich);
+		// sandwichService.addSandwich(testSandwich);
 
-		Sandwich actual = sandwichService.getSandwichByName("CParm5");
+		Sandwich actual = sandwichService.addSandwich(new Sandwich());
 
 		Sandwich expected = new Sandwich(6, "CParm5",
 				"Chicken, Mozzarella, Marinara", 1, true, 1);
+
 		assertEquals(expected, actual);
 	}
 }

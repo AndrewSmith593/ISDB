@@ -6,6 +6,6 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({SandwichTests.class, UserTests.class})
-public class AllTests {
+public class JunitTestSuite {
 
 }
