@@ -30,7 +30,31 @@ const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "fresh
 console.log(editSandwichId)
 
 
-function setCheckedIngredients(ingredientArr) {
+function setCheckedIngredients() {
+	
+	for(i = 0; i < editSandwichIngredArr.length; i++){
+		
+	let zIndex = i;
+	let currentIngred = editSandwichIngredArr[i];
+
+			document.getElementById(currentIngred).setAttribute("checked", "checked");
+			
+			let newIngredient = makeIngredient("breadBox", "previousIngred", currentIngred)
+			
+			breadBox.prepend(newIngredient)
+			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
+			var ingredImage = document.createElement("img");
+			ingredImage.style.zIndex = zIndex;
+			ingredImage.src = "http://localhost:8090/images/ingredients/" + currentIngred + ".png";
+			ingredImage.classList.add("ingredImg");
+
+			newIngredient.appendChild(ingredImage);
+		
+	}
+}
+
+
+/*function setCheckedIngredients(ingredientArr) {
 	let zIndex = (sandwichDetails.length)
 	for(i = ingredientArr.length -1; i >= 0; i--){
 	let currentIngred = ingredientArr[i];
@@ -53,16 +77,11 @@ function setCheckedIngredients(ingredientArr) {
 			//var ingredElems = document.getElementsByClassName("sauce");
 
 			newIngredient.appendChild(ingredImage);
-			return;
-			
 		}
 	}
-}
+}*/
 
-setCheckedIngredients(sauceArray);
-setCheckedIngredients(proteinArray);
-setCheckedIngredients(cheeseArray);
-setCheckedIngredients(veggieArray);
+setCheckedIngredients();
 
 function makeIngredient(container, ingredientType, ingredientName) {
 	let ingredient = document.createElement("INGREDIENT");

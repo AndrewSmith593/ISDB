@@ -143,32 +143,10 @@ function saveSandwich() {
 
 	let ingredientCount = sandwichDetails.length - 1;
 
-	/*for (let i = 0; i < sandwichDetails.length; i++) {
-		ingredientCount += sandwichDetails[i].split(" ").length - 1;
-		if (sandwichDetails[i].includes("Roast Beef")) {
-			ingredientCount -= 1;
-		}
-	}*/
-
 	document.getElementById(
 		"sandwich-description"
 	).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich 
 	made with ${ingredientCount} delicious ingredients.`;
-
-
-	/*document.getElementById(
-		"sandwich-description"
-	).innerHTML = `Mmmm... the ${sandwichDetails[0]}, a sandwich made with ${sandwichDetails[1]}, 
-	some ${sandwichDetails[2]}, hearty ${sandwichDetails[3]}, ${sandwichDetails[4]}, and finally 
-	some ${sandwichDetails[5]}. Sounds Delicious! You used ${ingredientCount} ingredients.`;*/
-
-	/*
-  when an ingredient is added, it will receive an ingredient number
-  the ingredient numbers will start from the bottom of the sandwich
-  when save button is clicked, the appropriate css class to position the ingredient will be applied
-  there will be a function that loops ingredient Count times
-	  this function will, 
-  */
 
 	// Animation stuff:
 	let ingredientDiv = document.getElementsByClassName("ingredient")[0];
