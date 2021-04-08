@@ -26,6 +26,9 @@ const cheeseArray = ["cheddar", "swiss", "provolone", "americancheese", "brieche
 const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "freshbasil", "friedonions",
 "jalapenos", "pickles", "sauerkraut", "spinach"];
 
+const otherArray = ["capers", "appleslices", "bananaslices", "frenchfries", "gardiniera", "olivesalad", "powderedsugar", "stuffing", "gravy", "mashedpotatoes"]
+
+
 //console.log(editSandwichName)
 console.log(editSandwichId)
 
@@ -54,33 +57,6 @@ function setCheckedIngredients() {
 }
 
 
-/*function setCheckedIngredients(ingredientArr) {
-	let zIndex = (sandwichDetails.length)
-	for(i = ingredientArr.length -1; i >= 0; i--){
-	let currentIngred = ingredientArr[i];
-		if(editSandwichIngredArr.includes(currentIngred)){
-		console.log("found the ingredient" + currentIngred)
-		
-			document.getElementById(currentIngred).setAttribute("checked", "checked");
-			
-			let newIngredient = makeIngredient("breadBox", "previousIngred", currentIngred)
-			
-			breadBox.prepend(newIngredient)
-			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
-			var ingredImage = document.createElement("img");
-			ingredImage.style.zIndex = zIndex;
-			ingredImage.src = "http://localhost:8090/images/ingredients/" + currentIngred + ".png";
-			ingredImage.classList.add("ingredImg");
-			ingredImage.classList.add("testclass");
-			//and append the image to the ingredient element
-			//var ingredElem = document.getElementById(ingredient);
-			//var ingredElems = document.getElementsByClassName("sauce");
-
-			newIngredient.appendChild(ingredImage);
-		}
-	}
-}*/
-
 setCheckedIngredients();
 
 function makeIngredient(container, ingredientType, ingredientName) {
@@ -90,7 +66,6 @@ function makeIngredient(container, ingredientType, ingredientName) {
 	//ingredient.innerHTML += ingredientName;
 	document.querySelector("#" + container).appendChild(ingredient);
 	sandwichDetails.push(ingredientName);
-	console.log(sandwichDetails)
 	return ingredient;
 
 }
@@ -140,9 +115,6 @@ function addIngredient(ingredientArray, ingredientType) {
 			ingredImage.style.zIndex = zIndex;
 			ingredImage.src = "./images/ingredients/" + ingredient + ".png";
 			ingredImage.classList.add("ingredImg");
-			//and append the image to the ingredient element
-			//var ingredElem = document.getElementById(ingredient);
-			//var ingredElems = document.getElementsByClassName("sauce");
 
 			newIngredient.appendChild(ingredImage);
 			return;
@@ -165,6 +137,10 @@ function addCheese(){
 
 function addVeggie(){
 	addIngredient(veggieArray, "veggie");
+}
+
+function addOther(){
+	addIngredient(otherArray, "other");
 }
 
 
@@ -256,4 +232,9 @@ console.log(sandwichDetails)
 
 //document.getElementById("saveBtn").addEventListenter("click", saveSandwich);
 $("#saveBtn").on("click", saveSandwich);
+$(".meatBtn").on("click", addProtein);
+$(".cheeseBtn").on("click", addCheese);
+$(".veggieBtn").on("click", addVeggie);
+$(".sauceBtn").on("click", addSauce);
+$(".otherBtn").on("click", addOther);
 })
