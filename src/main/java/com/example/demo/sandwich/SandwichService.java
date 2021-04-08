@@ -1,7 +1,6 @@
 package com.example.demo.sandwich;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.transaction.Transactional;
 
@@ -58,23 +57,24 @@ public class SandwichService {
 	// with this annotation, the entity (sandwich) goes into a managed state
 	// this allows you avoid using queries
 	@Transactional
-	public void updateSandwich(Integer sandwichId, String name,
-			String ingredients) {
-		Sandwich sandwich = sandwichRepository.findById(sandwichId)
-				.orElseThrow(() -> new IllegalStateException(
-						"Sandwich with id " + sandwichId + " does not exist."));
+	public void updateSandwich(Sandwich sandwich) {
+		Sandwich foundSandwich = sandwichRepository.findById(sandwich.getId())
+				.orElseThrow(() -> new IllegalStateException("Sandwich with id "
+						+ sandwich.getId() + " does not exist."));
+
+		String newName = sandwich.getName();
+		String newIngredients = sandwich.getIngredients();
 
 		// if the new name isn't null, is at least 1 character, and isn't the
 		// same as the previous name, setName of the sandwich to the new name
-		if (name != null && name.length() > 0
-				&& !Objects.equals(sandwich.getName(), name)) {
-			sandwich.setName(name);
+		if (newName != null && newName.length() > 0) {
+			foundSandwich.setName(newName);
 		}
 
 		// same logic for setting the new ingredients
-		if (ingredients != null && ingredients.length() > 0
-				&& !Objects.equals(sandwich.getIngredients(), ingredients)) {
-			sandwich.setIngredients(ingredients);
+		if (newIngredients != null && newIngredients.length() > 0) {
+			foundSandwich.setIngredients(newIngredients);
 		}
+		sandwichRepository.save(foundSandwich);
 	}
 }

@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -35,12 +34,17 @@ public class SandwichController {
 	}
 
 	@PutMapping
-	public void updateSandwich(@RequestParam("id") Integer sandwichId,
-			@RequestParam(required = false) String name,
-			@RequestParam(required = false) String ingredients) {
-		System.out.println("sandwichId is: " + sandwichId);
-		System.out.println("new name is: " + name);
-		System.out.println("new ingredients are: " + ingredients);
-		sandwichService.updateSandwich(sandwichId, name, ingredients);
+	public void updateSandwich(@RequestBody Sandwich sandwich) {
+		sandwichService.updateSandwich(sandwich);
 	}
+
+	// @PutMapping
+	// public void updateSandwich(@RequestParam("id") Integer sandwichId,
+	// @RequestParam(required = false) String name,
+	// @RequestParam(required = false) String ingredients) {
+	// System.out.println("sandwichId is: " + sandwichId);
+	// System.out.println("new name is: " + name);
+	// System.out.println("new ingredients are: " + ingredients);
+	// sandwichService.updateSandwich(sandwichId, name, ingredients);
+	// }
 }
