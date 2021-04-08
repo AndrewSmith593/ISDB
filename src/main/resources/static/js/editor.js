@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 console.log("hi from editorjs2")
 let sandwichDetails = [];
-let editSandwichId = document.getElementById("editSandwichId");
+let editSandwichId = document.getElementById("editSandwichId").innerHTML;
 let editSandwichName = document.getElementById("editSandwichName");
 let editSandwichIngredients = document.getElementById("editSandwichIngredients").innerHTML;
 let editSandwichIngredArr = editSandwichIngredients.split(", ").map(ing => ing.toLowerCase());
@@ -27,11 +27,12 @@ const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "fresh
 "jalapenos", "pickles", "sauerkraut", "spinach"];
 
 //console.log(editSandwichName)
-console.log(editSandwichIngredArr)
+console.log(editSandwichId)
+
 
 function setCheckedIngredients(ingredientArr) {
-	let zIndex = (sandwichDetails.length) * -1
-	for(i = 0; i < ingredientArr.length; i++){
+	let zIndex = (sandwichDetails.length)
+	for(i = ingredientArr.length -1; i >= 0; i--){
 	let currentIngred = ingredientArr[i];
 		if(editSandwichIngredArr.includes(currentIngred)){
 		console.log("found the ingredient" + currentIngred)
@@ -40,12 +41,13 @@ function setCheckedIngredients(ingredientArr) {
 			
 			let newIngredient = makeIngredient("breadBox", "previousIngred", currentIngred)
 			
-			breadBox.appendChild(newIngredient)
+			breadBox.prepend(newIngredient)
 			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
 			var ingredImage = document.createElement("img");
 			ingredImage.style.zIndex = zIndex;
-			ingredImage.src = "./images/ingredients/" + currentIngred + ".png";
+			ingredImage.src = "http://localhost:8090/images/ingredients/" + currentIngred + ".png";
 			ingredImage.classList.add("ingredImg");
+			ingredImage.classList.add("testclass");
 			//and append the image to the ingredient element
 			//var ingredElem = document.getElementById(ingredient);
 			//var ingredElems = document.getElementsByClassName("sauce");
@@ -69,6 +71,7 @@ function makeIngredient(container, ingredientType, ingredientName) {
 	//ingredient.innerHTML += ingredientName;
 	document.querySelector("#" + container).appendChild(ingredient);
 	sandwichDetails.push(ingredientName);
+	console.log(sandwichDetails)
 	return ingredient;
 
 }
@@ -162,20 +165,21 @@ function saveSandwich() {
 
 	let currentUserId = document.getElementById("currentUserId").innerHTML
 	console.log(currentUserId)
-	sandwichDetails[0] = document.getElementById(`sandwich-name`).value;
+	sandwichDetails.unshift(document.getElementById(`sandwich-name`).value);
 
-	if (document.getElementById("sharebox").checked) {
+	/*if (document.getElementById("sharebox").checked) {
 		sandwichDetails.splice(1, true)
 		console.log("sandwich shared")
 	} else {
 		sandwichDetails.splice(1, false)
 		console.log("sandwich NOT shared")
-	}
-
-	let ingredientString = sandwichDetails.slice(2).join(",");
+	}*/
+	
+console.log(sandwichDetails)
+	let ingredientString = sandwichDetails.slice(1).join(",");
 	
 	let formattedIngreds = uppercase(ingredientString);
-
+	console.log(formattedIngreds)
 	let ingredientCount = 0;
 
 	for (let i = 0; i < sandwichDetails.length; i++) {
@@ -212,9 +216,10 @@ function saveSandwich() {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
-		"type": "POST",
+		"type": "PUT",
 		"url": "/api/v1/sandwich",
 		"data": JSON.stringify({
+			"id": editSandwichId,
 			"name": `${sandwichDetails[0]}`,
 			"ingredients": formattedIngreds,
 			"creatorId": currentUserId,
@@ -229,4 +234,7 @@ function saveSandwich() {
 
 	console.log(document.getElementById("sandwich-description").innerHTML);
 }
+
+//document.getElementById("saveBtn").addEventListenter("click", saveSandwich);
+$("#saveBtn").on("click", saveSandwich);
 })

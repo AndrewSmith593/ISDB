@@ -135,6 +135,8 @@ function saveSandwich() {
 		console.log("sandwich NOT shared")
 	}
 
+console.log(sandwichDetails)
+
 	let ingredientString = sandwichDetails.slice(1).join(",");
 
 	let formattedIngreds = uppercase(ingredientString);

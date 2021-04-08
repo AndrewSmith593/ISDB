@@ -13,7 +13,7 @@
 	rel="stylesheet" />
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- <script src="/js/editor.js" type="text/javascript"></script> -->
+<!-- <script src="/js/editor.js" type="text/javascript"></script>  -->
 <script src="https://kit.fontawesome.com/0732e72a8e.js"
 	crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="/css/styles.css" />
@@ -97,7 +97,7 @@ overflow: auto;
 	<h3 hidden id="currentUserId" th:text="${session.currentUserId}"></h3>
 	<h3 hidden id="editSandwichId" th:text="${session.editSandwichId}"></h3>
 	<h3 hidden id="editSandwichName" th:text="${session.editSandwichName}"></h3>
-	<h3 id="editSandwichIngredients"
+	<h3 hidden id="editSandwichIngredients"
 		th:value=${session.editSandwichIngredients}
 		th:text="${session.editSandwichIngredients}">${session.getAttribute("editSandwichIngredients")}</h3>
 		
@@ -109,7 +109,7 @@ overflow: auto;
 				<div class="creator-section">
 					<div class="sectiontitlebox">
 						<h3 class="sectiontitle">Bread</h3>
-						<img class="creator-section-pic" src="bread.jpg" alt="" />
+						<img class="creator-section-pic" src="http://localhost:8090/images/bread.jpg" alt="" />
 					</div>
 
 					<select onchange="addBread()" id="bread-select"
@@ -125,7 +125,7 @@ overflow: auto;
 				<div class="creator-section">
 					<div class="sectiontitlebox">
 						<h3 class="sectiontitle">Protein</h3>
-						<img class="creator-section-pic" src="./images/meats.png" alt="" />
+						<img class="creator-section-pic" src="http://localhost:8090/images/meats.png" alt="" />
 					</div>
 					<div class="optionbox">
 						<div class="form-check">
@@ -282,7 +282,7 @@ overflow: auto;
 				<div class="creator-section">
 					<div class="sectiontitlebox">
 						<h3 class="sectiontitle">Cheese</h3>
-						<img class="creator-section-pic" src="./images/cheese.png" alt="" />
+						<img class="creator-section-pic" src="http://localhost:8090/images/cheese.png" alt="" />
 					</div>
 					<div class="optionbox">
 						<div class="form-check">
@@ -343,7 +343,7 @@ overflow: auto;
 				<div class="creator-section">
 					<div class="sectiontitlebox">
 						<h3 class="sectiontitle">Veggies</h3>
-						<img class="creator-section-pic" src="./images/veggies.png" alt="" />
+						<img class="creator-section-pic" src="http://localhost:8090/images/veggies.png" alt="" />
 					</div>
 					<div class="optionbox">
 						<div class="form-check">
@@ -424,7 +424,7 @@ overflow: auto;
 				<div style="overflow: auto" class="creator-section">
 					<div class="sectiontitlebox">
 						<h3 class="sectiontitle">Sauces</h3>
-						<img class="creator-section-pic" src="./images/sauces.png" alt="" />
+						<img class="creator-section-pic" src="http://localhost:8090/images/sauces.png" alt="" />
 					</div>
 
 					<div class="optionbox">
@@ -537,7 +537,7 @@ overflow: auto;
 				<div class="creator-section">
 					<div class="sectiontitlebox">
 						<h3 class="sectiontitle">Odds &amp; Ends</h3>
-						<img class="creator-section-pic" src="./images/cheese.png" alt="" />
+						<img class="creator-section-pic" src="http://localhost:8090/images/other.jpg" alt="" />
 					</div>
 					<div class="optionbox">
 						<div class="form-check">
@@ -620,7 +620,7 @@ overflow: auto;
 					</div>
 
 				</div>
-				<button onclick="saveSandwich()"
+				<button id="saveBtn"
 					style="background-color: #2b3237; border: 2px dotted #eff1ea"
 					type="button" class="btn btn-primary">Save Sandwich</button>
 			</form>
@@ -634,11 +634,11 @@ overflow: auto;
 			<div id="sandwichBox" style="align-self: center">
 			
 			<ingredient class="bread ingredient" id="white">
-			<img src="./images/ingredients/whitebread.png" class="ingredImg topBread" />
+			<img src="http://localhost:8090/images/ingredients/whitebread.png" class="ingredImg topBread" />
 			</ingredient>
 			<div id="breadBox"></div>
 			<ingredient class="bread ingredient" id="white">
-			<img src="./images/ingredients/whitebread.png" class="ingredImg bottomBread" />
+			<img src="http://localhost:8090/images/ingredients/whitebread.png" class="ingredImg bottomBread" />
 			</ingredient>
 			
 			</div>

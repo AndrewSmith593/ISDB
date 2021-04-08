@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,10 +35,9 @@ public class SandwichController {
 	}
 
 	@PutMapping
-	public void updateSandwich(@PathVariable("id") Integer sandwichId,
+	public void updateSandwich(@RequestParam("id") Integer sandwichId,
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String ingredients) {
-		System.out.println("hi from updatesandwich in controller");
 		System.out.println("sandwichId is: " + sandwichId);
 		System.out.println("new name is: " + name);
 		System.out.println("new ingredients are: " + ingredients);
