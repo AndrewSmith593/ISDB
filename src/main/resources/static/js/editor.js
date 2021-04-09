@@ -24,7 +24,7 @@ const cheeseArray = ["cheddar", "swiss", "provolone", "americancheese", "brieche
 "gruyerecheese", "mozzarella"];
 
 const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "freshbasil", "friedonions",
-"jalapenos", "pickles", "sauerkraut", "spinach"];
+"jalapenos", "pickles", "bananapeppers", "sauerkraut", "spinach"];
 
 const otherArray = ["capers", "appleslices", "bananaslices", "frenchfries", "gardiniera", "olivesalad", "powderedsugar", "stuffing", "gravy", "mashedpotatoes"]
 
@@ -97,7 +97,7 @@ function addBread() {
 //addIngredient takes the ingredient array and type, then creates the ingredient element,
 //adds the corresponding image to it, and puts it in the breadBox
 function addIngredient(ingredientArray, ingredientType) {
-	let zIndex = (sandwichDetails.length) * -1
+	let zIndex = (sandwichDetails.length)
 	console.log("addIngredient went off")
 	// Loop through the ingredient array
 	for (i = 0; i < ingredientArray.length; i++) {
@@ -109,11 +109,11 @@ function addIngredient(ingredientArray, ingredientType) {
 			//then make that ingredient element, append it to breadBox
 			let newIngredient = makeIngredient("breadBox", ingredientType, ingredient)
 			
-			breadBox.appendChild(newIngredient)
+			breadBox.prepend(newIngredient)
 			//then make an image, set the src to the corresponding ingredient image, add ingredImg class
 			var ingredImage = document.createElement("img");
 			ingredImage.style.zIndex = zIndex;
-			ingredImage.src = "./images/ingredients/" + ingredient + ".png";
+			ingredImage.src = "http://localhost:8090/images/ingredients/" + ingredient + ".png";
 			ingredImage.classList.add("ingredImg");
 
 			newIngredient.appendChild(ingredImage);
