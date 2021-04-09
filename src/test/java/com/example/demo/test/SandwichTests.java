@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.anyObject;
 import static org.mockito.Matchers.anyString;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -23,6 +25,17 @@ public class SandwichTests {
 		sandwichService = new SandwichService(sandwichRepository);
 	}
 
+	@Before
+	public void setUp() throws Exception {
+		System.out.println("Preparing test");
+	}
+
+	@After
+	public void postTest() {
+		// sandwichService.deleteSandwich(1);
+		System.out.println("Finished test\n");
+	}
+
 	@Test
 	public void testFindSandwichByName() {
 		System.out.println("Running testFindSandwichByName()...");
@@ -38,7 +51,7 @@ public class SandwichTests {
 	public void testSaveSandwich() {
 		System.out.println("Running testSaveSandwich()...");
 		Mockito.when(sandwichRepository.save(anyObject()))
-				.thenReturn(new Sandwich(6, "CParm5",
+				.thenReturn(new Sandwich(1, "TestSandwich",
 						"Chicken, Mozzarella, Marinara", 1, true, 1));
 
 		// Sandwich testSandwich = new Sandwich(6, "CParm5",
@@ -48,7 +61,7 @@ public class SandwichTests {
 
 		Sandwich actual = sandwichService.addSandwich(new Sandwich());
 
-		Sandwich expected = new Sandwich(6, "CParm5",
+		Sandwich expected = new Sandwich(1, "TestSandwich",
 				"Chicken, Mozzarella, Marinara", 1, true, 1);
 
 		assertEquals(expected, actual);

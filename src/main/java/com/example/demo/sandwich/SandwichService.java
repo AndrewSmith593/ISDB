@@ -43,8 +43,6 @@ public class SandwichService {
 	}
 
 	public void deleteSandwich(Integer sandwichId) {
-		System.out.println("deleteSandwich in sandservice fired off");
-
 		boolean exists = sandwichRepository.existsById(sandwichId);
 		// if the sandwich id isn't in db, throw exception
 		if (!exists) {

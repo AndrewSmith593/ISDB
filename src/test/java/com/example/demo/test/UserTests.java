@@ -7,6 +7,8 @@ import static org.mockito.Matchers.anyString;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -27,6 +29,18 @@ public class UserTests {
 	public static void setup() {
 		userRepository = Mockito.mock(UserRepository.class);
 		userService = new UserService(userRepository, sandwichRepository);
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		System.out.println("Preparing test");
+	}
+
+	@After
+	public void postTest() {
+		// Integer userId = userService.getUserByUsername("TestUser4").getId();
+		// userService.deleteUser(userId);
+		System.out.println("Finished test\n");
 	}
 
 	@Test

@@ -9,13 +9,14 @@ public class TestRunner {
 	public static void main(String[] args) {
 		Result result = JUnitCore.runClasses(JunitTestSuite.class);
 
-		System.out.println('\n');
+		System.out.println("There were " + result.getFailureCount()
+				+ " failures out of 4 tests:\n");
 
 		for (Failure failure : result.getFailures()) {
 			System.out.println(failure.toString() + '\n');
 		}
 
-		System.out.println(result.wasSuccessful());
+		System.out.println("Test successful: " + result.wasSuccessful());
 	}
 
 }

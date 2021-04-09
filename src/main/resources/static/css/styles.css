@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-* {
-  /* border: 1px solid red; */
-}
-
 .nav-link,
 .navbar-brand {
   color: #eff1ea !important;
@@ -59,7 +55,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   align-items: center;
 width: 600px;
   height: 100px;
-  /* border: 1px solid #eff1ea; */
   margin: 5px 0px 5px 0px;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -115,7 +110,6 @@ tr:nth-child(even) {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-around;
-  /* background-color: aqua; */
   height: 400px;
 }
 
@@ -194,7 +188,6 @@ body {
 align-content: flex-end;
   align-self: center;
 } */
-
 .stage {
   border-top: 3px solid #444;
   display: flex;

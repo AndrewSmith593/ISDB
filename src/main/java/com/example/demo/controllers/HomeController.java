@@ -33,6 +33,12 @@ public class HomeController {
 		return "index";
 	}
 
+	@GetMapping("/logout")
+	public String getLoggedOutPage(HttpSession session) {
+		session.invalidate();
+		return "loggedout";
+	}
+
 	@GetMapping("/loginfail")
 	public String getLoginFailPage() {
 		return "loginfail";
@@ -109,6 +115,8 @@ public class HomeController {
 		System.out.println("user.getId is: " + currentUserId);
 
 		if (user != null && password.equals(user.getPassword())) {
+			session.setAttribute("allSandwiches",
+					sandwichService.getSandwiches());
 			session.setAttribute("currentUser", user);
 			session.setAttribute("currentUsername", user.getUsername());
 			session.setAttribute("currentUserId", user.getId());
