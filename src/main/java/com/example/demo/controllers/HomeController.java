@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.sandwich.Sandwich;
 import com.example.demo.sandwich.SandwichService;
 import com.example.demo.user.User;
 import com.example.demo.user.UserService;
@@ -32,6 +31,11 @@ public class HomeController {
 	@GetMapping("/")
 	public String getHomePage() {
 		return "index";
+	}
+
+	@GetMapping("/loginfail")
+	public String getLoginFailPage() {
+		return "loginfail";
 	}
 
 	@GetMapping("/create")
@@ -105,25 +109,27 @@ public class HomeController {
 
 		// System.out.println(user.getuSandwiches().toString());
 
-		for (Sandwich s : user.getuSandwiches()) {
-			System.out.println(s);
-		}
+		// for (Sandwich s : user.getuSandwiches()) {
+		// System.out.println(s);
+		// }
 
 		// System.out.println(user.getUsername());
-		session.setAttribute("currentUser", user);
-		session.setAttribute("currentUserId", user.getId());
+		// session.setAttribute("currentUser", user);
+		// session.setAttribute("currentUserId", user.getId());
 
 		// session.setAttribute("currentUserSandwiches",
 		// userService.getUserSandwiches(user.getId()));
 
 		if (user != null && password.equals(user.getPassword())) {
 			session.setAttribute("currentUser", user);
+			session.setAttribute("currentUserId", user.getId());
 			System.out.println("User logged in successfully.");
 			return "menu";
+		} else {
+			System.out.println("Login failed");
+			model.addAttribute("loginFailedMessage", "Login failed.");
+			return "loginfail";
 		}
-		System.out.println("Login failed");
-		model.addAttribute("loginFailedMessage", "Login failed.");
-		return "menu";
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
