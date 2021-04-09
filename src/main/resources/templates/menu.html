@@ -59,11 +59,24 @@ body {
 				<tr>
 					<th>Sandwich Name</th>
 					<th>Ingredients</th>
+					<th>Type</th>
 					<th></th>
 				</tr>
 				<tr th:each="sandwich : ${session.allSandwiches}">
 					<td th:text="${sandwich.name}" />
 					<td th:text="${sandwich.ingredients}" />
+					
+					<td th:switch="${sandwich.sTypeId}">
+				<span th:case="'1'">Favorites</span>
+					<span th:case="'2'">Deli Classics</span>
+					<span th:case="'3'">Italian Inspired</span>
+					<span th:case="'4'">Vegetarian</span>
+					<span th:case="'5'">Seafood</span>
+					<span th:case="'6'">Quick & Easy</span>
+					<span th:case="'7'">Breakfast</span>
+					<span th:case="'8'">Experimental</span>
+					</td>
+					
 					<td><form
 							th:action="@{'/api/v1/sandwich/edit/' + ${sandwich.id} + '/' + ${sandwich.name} + '/' + ${sandwich.ingredients}}"
 							th:method="POST" id="">

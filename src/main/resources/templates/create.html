@@ -12,7 +12,8 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&amp;display=swap"
 	rel="stylesheet" />
 <script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"
+	type="text/javascript"></script>
 <script src="/js/creator.js" type="text/javascript"></script>
 <script src="https://kit.fontawesome.com/0732e72a8e.js"
 	crossorigin="anonymous" type="text/javascript"></script>
@@ -96,9 +97,9 @@ body {
 	<h1 style="text-align: center;">Create a Sandwich</h1>
 	<section id="message-box">
 		<p
-				style="font-size: 25px; text-align: center; margin-bottom: 20px; font-weight: bolder;"
-				id="sandwich-description"></p>
-		</section>
+			style="font-size: 25px; text-align: center; margin-bottom: 20px; font-weight: bolder;"
+			id="sandwich-description"></p>
+	</section>
 	<h3 hidden id="currentUserId" th:text="${session.currentUserId}"></h3>
 	<div id="main-container">
 		<section id="sandwich-creator">
@@ -126,8 +127,8 @@ body {
 					<div class="optionbox">
 						<div class="form-check">
 							<input onclick="addProtein()" class="form-check-input"
-								type="checkbox" id="ham" /> <label
-								class="form-check-label" for="flexCheckDefault"> Ham </label>
+								type="checkbox" id="ham" /> <label class="form-check-label"
+								for="flexCheckDefault"> Ham </label>
 						</div>
 						<div class="form-check">
 							<input onclick="addProtein()" class="form-check-input"
@@ -398,8 +399,8 @@ body {
 						<div class="form-check">
 							<input onclick="addVeggie()" class="form-check-input"
 								type="checkbox" value="" id="bananapeppers" /> <label
-								class="form-check-label" for="flexCheckDefault"> Banana Peppers
-							</label>
+								class="form-check-label" for="flexCheckDefault"> Banana
+								Peppers </label>
 						</div>
 						<div class="form-check">
 							<input onclick="addVeggie()" class="form-check-input"
@@ -603,6 +604,25 @@ body {
 				</div>
 
 				<div class="creator-section">
+					<div class="sectiontitlebox">
+						<h3 class="sectiontitle">Sandwich Type</h3>
+					</div>
+					<select onchange="" id="sandwichType-select"
+						class="form-select creator-section"
+						aria-label="Default select example">
+						<option selected></option>
+						<option value="1">Favorites</option>
+						<option value="2">Deli Classics</option>
+						<option value="3">Italian Inspired</option>
+						<option value="4">Vegetarian</option>
+						<option value="5">Seafood</option>
+						<option value="6">Quick & Easy</option>
+						<option value="7">Breakfast</option>
+						<option value="8">Experimental</option>
+					</select>
+				</div>
+
+				<div class="creator-section">
 					<label for="sandwich-name">Name your sandwich:</label> <input
 						type="text" id="sandwich-name" name="sandwich-name" />
 
@@ -619,7 +639,7 @@ body {
 					type="button" class="btn btn-primary">Save Sandwich</button>
 			</form>
 		</section>
-	
+
 		<section id="sandwich-visualizer">
 			<div id="sandwichBox" style="align-self: center"></div>
 		</section>

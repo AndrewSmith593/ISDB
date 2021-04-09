@@ -51,18 +51,32 @@ body {
 	</nav>
 	<div id="">
 
-		<h1 style="display: inline" th:text="${session.currentUsername}"></h1><h1 style="display: inline">'s Sandwiches</h1>
+		<h1 style="display: inline" th:text="${session.currentUsername}"></h1>
+		<h1 style="display: inline">'s Sandwiches</h1>
 
 		<table>
 			<tr>
 				<th>Sandwich Name</th>
 				<th>Ingredients</th>
+				<th>Type</th>
 				<th></th>
 				<th></th>
 			</tr>
 			<tr th:each="sandwich : ${session.currentUserSandwiches}">
 				<td th:text="${sandwich.name}" />
 				<td th:text="${sandwich.ingredients}" />
+
+				<td th:switch="${sandwich.sTypeId}">
+				<span th:case="'1'">Favorites</span>
+					<span th:case="'2'">Deli Classics</span>
+					<span th:case="'3'">Italian Inspired</span>
+					<span th:case="'4'">Vegetarian</span>
+					<span th:case="'5'">Seafood</span>
+					<span th:case="'6'">Quick & Easy</span>
+					<span th:case="'7'">Breakfast</span>
+					<span th:case="'8'">Experimental</span>
+					</td>
+
 				<td><form
 						th:action="@{'/api/v1/sandwich/edit/' + ${sandwich.id} + '/' + ${sandwich.name} + '/' + ${sandwich.ingredients}}"
 						th:method="POST" id="">
@@ -75,13 +89,12 @@ body {
 					</form></td>
 			</tr>
 		</table>
-		
-		<form style="margin:30px 10px 10px 10px"
-						th:action=@{/logout}
-						th:method="GET" id="">
-						<input id="logoutButton" type="submit" value="Logout" />
-					</form>
-		
+
+		<form style="margin: 30px 10px 10px 10px" th:action=@{/logout}
+			th:method="GET" id="">
+			<input id="logoutButton" type="submit" value="Logout" />
+		</form>
+
 	</div>
 	<script src="/js/mysandwiches.js" type="text/javascript"></script>
 </body>

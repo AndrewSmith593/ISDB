@@ -2,7 +2,6 @@
 
 let sandwichDetails = [];
 
-
 const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly",
 	"ketchup", "marinara", "chimichurri", "marshmallowcreme", "oilandvinegar", "peanutbutter",
 	"russiandressing", "tartarsauce", "barbecuesauce"];
@@ -123,8 +122,12 @@ function uppercase(str) {
 
 function saveSandwich() {
 
+	let shared = document.getElementById("sharebox").checked
+
+	let sandwichTypeId = document.getElementById("sandwichType-select").value
+
 	let currentUserId = document.getElementById("currentUserId").innerHTML
-	console.log(currentUserId)
+
 	sandwichDetails[0] = document.getElementById(`sandwich-name`).value;
 
 	if (document.getElementById("sharebox").checked) {
@@ -169,8 +172,8 @@ function saveSandwich() {
 			"name": `${sandwichDetails[0]}`,
 			"ingredients": formattedIngreds,
 			"creatorId": currentUserId,
-			"shared": true,
-			"sTypeId": 3
+			"shared": shared,
+			"sTypeId": sandwichTypeId
 		}),
 		"datatype": "json",
 		"success": function(response, status) {
