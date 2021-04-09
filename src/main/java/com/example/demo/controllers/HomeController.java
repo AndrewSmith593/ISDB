@@ -107,21 +107,9 @@ public class HomeController {
 		currentUserId = user.getId();
 		System.out.println("user.getId is: " + currentUserId);
 
-		// System.out.println(user.getuSandwiches().toString());
-
-		// for (Sandwich s : user.getuSandwiches()) {
-		// System.out.println(s);
-		// }
-
-		// System.out.println(user.getUsername());
-		// session.setAttribute("currentUser", user);
-		// session.setAttribute("currentUserId", user.getId());
-
-		// session.setAttribute("currentUserSandwiches",
-		// userService.getUserSandwiches(user.getId()));
-
 		if (user != null && password.equals(user.getPassword())) {
 			session.setAttribute("currentUser", user);
+			session.setAttribute("currentUsername", user.getUsername());
 			session.setAttribute("currentUserId", user.getId());
 			System.out.println("User logged in successfully.");
 			return "menu";
