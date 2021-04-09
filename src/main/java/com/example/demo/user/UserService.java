@@ -61,7 +61,6 @@ public class UserService {
 
 	public List<Sandwich> getUserSandwiches(int id) {
 		return sandwichRepository.findSandwichesByCreatorId(id);
-
 	}
 
 	// with this annotation, the entity (user) goes into a managed state

@@ -49,7 +49,8 @@ public class HomeController {
 	}
 
 	@GetMapping("/menu")
-	public String getMenuPage() {
+	public String getMenuPage(HttpSession session) {
+		session.setAttribute("allSandwiches", sandwichService.getSandwiches());
 		return "menu";
 	}
 
