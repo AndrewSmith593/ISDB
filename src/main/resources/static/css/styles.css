@@ -248,3 +248,25 @@ align-content: flex-end;
     transform: translateY(-0%);
   }
 }
+
+/* Jiggle Animation */
+.jiggle {
+  animation: shake 0.32s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  
+  30% {
+    transform: translate3d(0, 5px, 0);
+  }
+75% {
+    transform: translate3d(0, -15px, 0);
+  }
+ 
+}

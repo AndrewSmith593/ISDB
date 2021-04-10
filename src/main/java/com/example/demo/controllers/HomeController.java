@@ -92,9 +92,6 @@ public class HomeController {
 			@PathVariable("name") String name,
 			@PathVariable("ingredients") String ingredients,
 			HttpSession session) {
-		System.out.println("hello from getEditPage in home controller");
-
-		// Integer sId = Integer.parseInt(sandwichId);
 
 		session.setAttribute("editSandwichId", sandwichId);
 		session.setAttribute("editSandwichName", name);

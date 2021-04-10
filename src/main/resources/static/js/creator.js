@@ -79,11 +79,17 @@ function addIngredient(ingredientArray, ingredientType) {
 			ingredImage.src = "./images/ingredients/" + ingredient + ".png";
 			ingredImage.classList.add("ingredImg");
 
-			//and append the image to the ingredient element
-			//var ingredElem = document.getElementById(ingredient);
-			//var ingredElems = document.getElementsByClassName("sauce");
-
 			newIngredient.appendChild(ingredImage);
+
+			//let ingredientDiv = document.getElementsByClassName("ingredient")[0];
+			//let ingredientDiv2 = document.getElementsByClassName("ingredient")[1];
+			// let proteinDiv3 = document.getElementsByClassName("protein")[2]
+
+			//$('.ingredient').addClass('jiggle')
+
+			//ingredientDiv.classList.add("bounce-1");
+			//ingredientDiv2.classList.add("bounce-2");
+
 			return;
 		}
 	}

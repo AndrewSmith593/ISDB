@@ -101,6 +101,7 @@ body {
 	<h3 hidden id="currentUserId" th:text="${session.currentUserId}"></h3>
 	<h3 hidden id="editSandwichId" th:text="${session.editSandwichId}"></h3>
 	<h3 hidden id="editSandwichName" th:text="${session.editSandwichName}"></h3>
+	<h3 hidden id="editSandwichTypeId" th:text="${session.editSandwichTypeId}"></h3>
 	<h3 hidden id="editSandwichIngredients"
 		th:value=${session.editSandwichIngredients}
 		th:text="${session.editSandwichIngredients}">${session.getAttribute("editSandwichIngredients")}</h3>
@@ -558,6 +559,25 @@ body {
 								for="flexCheckDefault"> Mashed Potatoes </label>
 						</div>
 					</div>
+				</div>
+
+				<div class="creator-section">
+					<div class="sectiontitlebox">
+						<h3 class="sectiontitle">Sandwich Type</h3>
+					</div>
+					<select onchange="" id="sandwichType-select"
+						class="form-select creator-section"
+						aria-label="Default select example">
+						<option selected></option>
+						<option value="1">Favorites</option>
+						<option value="2">Deli Classics</option>
+						<option value="3">Italian Inspired</option>
+						<option value="4">Vegetarian</option>
+						<option value="5">Seafood</option>
+						<option value="6">Quick & Easy</option>
+						<option value="7">Breakfast</option>
+						<option value="8">Experimental</option>
+					</select>
 				</div>
 
 				<div class="creator-section">

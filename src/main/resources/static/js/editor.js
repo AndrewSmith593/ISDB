@@ -7,9 +7,47 @@ $(document).ready(function(){
 console.log("hi from editorjs2")
 let sandwichDetails = [];
 let editSandwichId = document.getElementById("editSandwichId").innerHTML;
-let editSandwichName = document.getElementById("editSandwichName");
+let editSandwichName = document.getElementById("editSandwichName").innerHTML;
 let editSandwichIngredients = document.getElementById("editSandwichIngredients").innerHTML;
 let editSandwichIngredArr = editSandwichIngredients.split(", ").map(ing => ing.toLowerCase());
+
+/*
+let editSandwichTypeId = document.getElementById("editSandwichTypeId").innerHTML;
+let editSandwichType = "";
+
+switch(editSandwichTypeId) {
+  case 1:
+    editSandwichType = "Favorites"
+    break;
+  case 2:
+    editSandwichType = "Deli Classics"
+    break;
+  case 3:
+    editSandwichType = "Italian Inspired"
+    break;
+  case 4:
+    editSandwichType = "Vegetarian"
+    break;
+  case 5:
+    editSandwichType = "Seafood"
+    break;
+  case 6:
+    editSandwichType = "Quick & Easy"
+    break;
+  case 7:
+    editSandwichType = "Breakfast"
+    break;
+  case 8:
+    editSandwichType = "Experimental"
+    break;
+  default:
+}
+
+document.getElementById("sandwichType-select").value = editSandwichType;
+*/
+
+
+document.getElementById("sandwich-name").value = editSandwichName;
 
 const sauceArray = ["mayo", "mustard", "sriracha", "butter", "cranberrysauce", "gravy", "hummus", "jelly", 
 "ketchup", "marinara", "chimichurri", "marshmallowcreme", "oilandvinegar", "peanutbutter", "powderedsugar",
@@ -158,8 +196,12 @@ function uppercase(str)
 
 function saveSandwich() {
 
+	let shared = document.getElementById("sharebox").checked
+
+	let sandwichTypeId = document.getElementById("sandwichType-select").value
+
 	let currentUserId = document.getElementById("currentUserId").innerHTML
-	console.log(currentUserId)
+
 	sandwichDetails.unshift(document.getElementById(`sandwich-name`).value);
 
 	/*if (document.getElementById("sharebox").checked) {
@@ -218,8 +260,8 @@ console.log(sandwichDetails)
 			"name": `${sandwichDetails[0]}`,
 			"ingredients": formattedIngreds,
 			"creatorId": currentUserId,
-			"shared": true,
-			"sTypeId": 3
+			"shared": shared,
+			"sTypeId": sandwichTypeId
 		}),
 		"datatype": "json",
 		"success": function(response, status) {
