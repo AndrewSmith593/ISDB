@@ -33,6 +33,7 @@ function makeIngredient(container, ingredientType, ingredientName) {
 
 function addBread() {
 	var breadType = document.getElementById("bread-select").value;
+	console.log(breadType)
 	makeIngredient("sandwichBox", "bread", breadType)
 	let breadBox = document.createElement("div")
 	breadBox.setAttribute("id", "breadBox")
@@ -40,11 +41,11 @@ function addBread() {
 	makeIngredient("sandwichBox", "bread", breadType)
 
 	var topBreadImg = document.createElement("img");
-	topBreadImg.src = "./images/ingredients/whitebread.png";
+	topBreadImg.src = "./images/ingredients/bread/" + breadType + ".png";
 	topBreadImg.classList.add("ingredImg", "topBread")
 
 	var bottomBreadImg = document.createElement("img");
-	bottomBreadImg.src = "./images/ingredients/whitebread.png";
+	bottomBreadImg.src = "./images/ingredients/bread/" + breadType + "2.png";
 	bottomBreadImg.classList.add("ingredImg", "bottomBread")
 
 	var breadElems = document.getElementsByClassName("bread")
