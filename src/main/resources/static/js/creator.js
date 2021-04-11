@@ -41,11 +41,11 @@ function addBread() {
 	makeIngredient("sandwichBox", "bread", breadType)
 
 	var topBreadImg = document.createElement("img");
-	topBreadImg.src = "./images/ingredients/bread/" + breadType + ".png";
+	topBreadImg.src = "./images/bread/" + breadType + ".png";
 	topBreadImg.classList.add("ingredImg", "topBread")
 
 	var bottomBreadImg = document.createElement("img");
-	bottomBreadImg.src = "./images/ingredients/bread/" + breadType + "2.png";
+	bottomBreadImg.src = "./images/bread/" + breadType + "2.png";
 	bottomBreadImg.classList.add("ingredImg", "bottomBread")
 
 	var breadElems = document.getElementsByClassName("bread")
