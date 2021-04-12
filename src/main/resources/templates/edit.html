@@ -116,9 +116,9 @@ body {
 							src="http://localhost:8090/images/bread.jpg" alt="" />
 					</div>
 
-					<select id="bread-select"
+					<select onchange="addBread()" id="bread-select"
 						class="form-select creator-section"
-						<!-- aria-label="Default select example"> -->
+						aria-label="Default select example">
 						<option selected>Select your bread</option>
 						<option value="white">White</option>
 						<option value="wheat">Wheat</option>
@@ -606,13 +606,13 @@ body {
 		<section id="sandwich-visualizer">
 
 			<div id="sandwichBox" style="align-self: center">
-				<!-- <ingredient class="bread ingredient" id="white"> <img
+				<ingredient class="bread ingredient" id="white"> <img
 					src="http://localhost:8090/images/ingredients/whitebread.png"
-					class="ingredImg topBread" /> </ingredient> -->
-				<!-- <div id="breadBox"></div> -->
-				<!-- <ingredient class="bread ingredient" id="white"> <img
+					class="ingredImg topBread" /> </ingredient>
+				<div id="breadBox"></div>
+				<ingredient class="bread ingredient" id="white"> <img
 					src="http://localhost:8090/images/ingredients/whitebread.png"
-					class="ingredImg bottomBread" /> </ingredient> -->
+					class="ingredImg bottomBread" /> </ingredient>
 			</div>
 		</section>
 	</div>

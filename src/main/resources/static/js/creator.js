@@ -26,22 +26,14 @@ function makeIngredient(container, ingredientType, ingredientName) {
 	ingredient.setAttribute("id", ingredientName)
 	//ingredient.innerHTML += ingredientName;
 	document.querySelector("#" + container).appendChild(ingredient);
-	
-	if(!sandwichDetails.includes(ingredientName)){		
 	sandwichDetails.push(ingredientName);
-	}
-	
 	return ingredient;
-}
 
+}
 
 function addBread() {
 	var breadType = document.getElementById("bread-select").value;
-
-	if ($(".bread").length) {
-		$(".bread").remove()
-	}
-
+	console.log(breadType)
 	makeIngredient("sandwichBox", "bread", breadType)
 	let breadBox = document.createElement("div")
 	breadBox.setAttribute("id", "breadBox")
@@ -62,18 +54,18 @@ function addBread() {
 	breadElems[1].appendChild(bottomBreadImg);
 }
 
-function changeInput(){
-	console.log("sup")
-}
+
 
 //addIngredient takes the ingredient array and type, then creates the ingredient element,
 //adds the corresponding image to it, and puts it in the breadBox
+
 function addIngredient(ingredientArray, ingredientType) {
 	let zIndex = (sandwichDetails.length)
 
 	// Loop through the ingredient array
 	for (i = 0; i < ingredientArray.length; i++) {
 		let ingredient = ingredientArray[i];
+		console.log(ingredient)
 
 		//if a certain ingredient checkbox is checked, and that ingredient isn't already on the sandwich...
 		if (document.getElementById(ingredient).checked && !sandwichDetails.includes(ingredient)) {
@@ -89,14 +81,16 @@ function addIngredient(ingredientArray, ingredientType) {
 			ingredImage.classList.add("ingredImg");
 
 			newIngredient.appendChild(ingredImage);
-			
-			//ANIMATION CODE
+
 			//let ingredientDiv = document.getElementsByClassName("ingredient")[0];
 			//let ingredientDiv2 = document.getElementsByClassName("ingredient")[1];
 			// let proteinDiv3 = document.getElementsByClassName("protein")[2]
+
 			//$('.ingredient').addClass('jiggle')
+
 			//ingredientDiv.classList.add("bounce-1");
 			//ingredientDiv2.classList.add("bounce-2");
+
 			return;
 		}
 	}
@@ -141,7 +135,15 @@ function saveSandwich() {
 
 	let currentUserId = document.getElementById("currentUserId").innerHTML
 
-	sandwichDetails.unshift(document.getElementById(`sandwich-name`).value);
+	sandwichDetails[0] = document.getElementById(`sandwich-name`).value;
+
+	if (document.getElementById("sharebox").checked) {
+		sandwichDetails.splice(1, true)
+		console.log("sandwich shared")
+	} else {
+		sandwichDetails.splice(1, false)
+		console.log("sandwich NOT shared")
+	}
 
 	console.log(sandwichDetails)
 

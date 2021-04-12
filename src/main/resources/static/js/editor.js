@@ -4,6 +4,7 @@
 
 $(document).ready(function(){
 
+console.log("hi from editorjs2")
 let sandwichDetails = [];
 let editSandwichId = document.getElementById("editSandwichId").innerHTML;
 let editSandwichName = document.getElementById("editSandwichName").innerHTML;
@@ -66,12 +67,13 @@ const veggieArray = ["lettuce", "tomato", "onion", "avocado", "cucumber", "fresh
 const otherArray = ["capers", "appleslices", "bananaslices", "frenchfries", "gardiniera", "olivesalad", "powderedsugar", "stuffing", "gravy", "mashedpotatoes"]
 
 
+//console.log(editSandwichName)
+console.log(editSandwichId)
+
+
 function setCheckedIngredients() {
 	
-	document.getElementById("bread-select").value = editSandwichIngredArr[0]
-		addBread()
-		
-	for(i = 1; i < editSandwichIngredArr.length; i++){
+	for(i = 0; i < editSandwichIngredArr.length; i++){
 		
 	let zIndex = i;
 	let currentIngred = editSandwichIngredArr[i];
@@ -95,27 +97,19 @@ function setCheckedIngredients() {
 
 setCheckedIngredients();
 
-
 function makeIngredient(container, ingredientType, ingredientName) {
 	let ingredient = document.createElement("INGREDIENT");
 	ingredient.classList.add(ingredientType, "ingredient");
 	ingredient.setAttribute("id", ingredientName)
 	//ingredient.innerHTML += ingredientName;
 	document.querySelector("#" + container).appendChild(ingredient);
-	if(!sandwichDetails.includes(ingredientName)){		
 	sandwichDetails.push(ingredientName);
-	}
 	return ingredient;
 
 }
 
 function addBread() {
 	var breadType = document.getElementById("bread-select").value;
-
-	if ($(".bread").length) {
-		$(".bread").remove()
-	}
-
 	makeIngredient("sandwichBox", "bread", breadType)
 	let breadBox = document.createElement("div")
 	breadBox.setAttribute("id", "breadBox")
@@ -123,11 +117,11 @@ function addBread() {
 	makeIngredient("sandwichBox", "bread", breadType)
 
 	var topBreadImg = document.createElement("img");
-	topBreadImg.src = "http://localhost:8090/images/bread/" + breadType + ".png";
+	topBreadImg.src = "./images/ingredients/whitebread.png";
 	topBreadImg.classList.add("ingredImg", "topBread")
 
 	var bottomBreadImg = document.createElement("img");
-	bottomBreadImg.src = "http://localhost:8090/images/bread/" + breadType + "2.png";
+	bottomBreadImg.src = "./images/ingredients/whitebread.png";
 	bottomBreadImg.classList.add("ingredImg", "bottomBread")
 
 	var breadElems = document.getElementsByClassName("bread")
@@ -285,5 +279,4 @@ $(".cheeseBtn").on("click", addCheese);
 $(".veggieBtn").on("click", addVeggie);
 $(".sauceBtn").on("click", addSauce);
 $(".otherBtn").on("click", addOther);
-$("#bread-select").on("change", addBread);
 })
