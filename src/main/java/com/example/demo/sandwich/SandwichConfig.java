@@ -13,35 +13,34 @@ public class SandwichConfig {
 	CommandLineRunner commandLineRunner(SandwichRepository repository) {
 		return args -> {
 			Sandwich pbj = new Sandwich(1, "Peanut Butter and Jelly",
-					"White, Peanutbutter, Jelly", 1, true, 1);
+					"Peanutbutter, Jelly", 1, true, 1);
 
 			Sandwich hamAndCheese = new Sandwich("Ham and Cheese",
-					"White, Ham, Cheddar, Mayo, Mustard", 1, true, 1);
+					"Ham, Cheddar, Mayo, Mustard", 1, true, 1);
 
 			Sandwich club = new Sandwich("Club",
-					"White, Turkey, Ham, Bacon, Lettuce, Tomato, Mayo", 1, true,
-					1);
+					"Turkey, Ham, Bacon, Lettuce, Tomato, Mayo", 1, true, 1);
 
 			Sandwich italian = new Sandwich("Italian",
-					"Subroll, Salami, Ham, Mortadella, Capicola, Lettuce, Tomato, Onion, Oilandvinegar, Bananapeppers",
+					"Salami, Ham, Mortadella, Capicola, Lettuce, Tomato, Onion, Oilandvinegar, Bananapeppers",
 					1, true, 1);
 
 			Sandwich chickenParm = new Sandwich("Chicken Parm",
-					"Subroll, Chicken, Mozzarella, Marinara", 1, true, 1);
+					"Chicken, Mozzarella, Marinara", 1, true, 1);
 
 			Sandwich veggieLover = new Sandwich("Veggie Lover",
-					"Wheat, Hummus, Avocado, Lettuce, Tomato, Cucumber, Onion, Mayo, Provolone",
+					"Hummus, Avocado, Lettuce, Tomato, Cucumber, Onion, Mayo, Provolone",
 					1, true, 1);
 
 			Sandwich turkeyBacon = new Sandwich("Turkey Bacon",
-					"Wheat, Turkey, Bacon, Cheddar, Avocado, Tomato, Mayo", 1,
-					true, 1);
+					"Turkey, Bacon, Cheddar, Avocado, Tomato, Mayo", 1, true,
+					1);
 
 			Sandwich meatballSub = new Sandwich("Meatball",
-					"Subroll, Meatballs, Mozzarella, Marinara", 1, true, 1);
+					"Meatballs, Mozzarella, Marinara", 1, true, 1);
 
-			Sandwich blt = new Sandwich("BLT",
-					"Wheat, Bacon, Lettuce, Tomato, Mayo", 1, true, 1);
+			Sandwich blt = new Sandwich("BLT", "Bacon, Lettuce, Tomato, Mayo",
+					1, true, 1);
 
 			repository.saveAll(List.of(pbj, hamAndCheese, club, italian,
 					chickenParm, veggieLover, turkeyBacon, meatballSub, blt));
