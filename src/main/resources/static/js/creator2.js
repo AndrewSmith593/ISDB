@@ -39,7 +39,6 @@ function addBread() {
 	if ($(".bread").length) {
 		$(".bread").remove()
 		$("#breadBox").remove()
-		sandwichDetails.shift()
 	}
 
 	makeIngredient("sandwichBox", "bread", breadType)

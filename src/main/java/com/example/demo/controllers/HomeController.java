@@ -49,6 +49,11 @@ public class HomeController {
 		return "create";
 	}
 
+	@GetMapping("/welcome")
+	public String getWelcomePage() {
+		return "welcome";
+	}
+
 	@GetMapping("/api/v1/sandwich/edit/{id}/{name}/{ingredients}")
 	public String getEditPage() {
 		return "edit";
@@ -67,10 +72,11 @@ public class HomeController {
 
 	@GetMapping("/mysandwiches")
 	public String getMySandwichesPage(HttpSession session) {
-
-		session.setAttribute("currentUserSandwiches",
-				userService.getUserSandwiches(
-						(int) session.getAttribute("currentUserId")));
+		if (session.getAttribute("currentUserId") != null) {
+			session.setAttribute("currentUserSandwiches",
+					userService.getUserSandwiches(
+							(int) session.getAttribute("currentUserId")));
+		}
 		return "mysandwiches";
 	}
 
@@ -117,8 +123,13 @@ public class HomeController {
 			session.setAttribute("currentUser", user);
 			session.setAttribute("currentUsername", user.getUsername());
 			session.setAttribute("currentUserId", user.getId());
+
+			session.setAttribute("currentUserSandwiches",
+					userService.getUserSandwiches(
+							(int) session.getAttribute("currentUserId")));
+
 			System.out.println("User logged in successfully.");
-			return "menu";
+			return "mysandwiches";
 		} else {
 			System.out.println("Login failed");
 			model.addAttribute("loginFailedMessage", "Login failed.");
@@ -127,9 +138,16 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String addUser(User user) {
+	public String addUser(User user, HttpSession session) {
 		userService.addUser(user);
-		return "menu";
+
+		session.setAttribute("allSandwiches", sandwichService.getSandwiches());
+		session.setAttribute("currentUser", user);
+		session.setAttribute("currentUsername", user.getUsername());
+		session.setAttribute("currentUserId", user.getId());
+		System.out.println("User created and logged in successfully.");
+		return "welcome";
+
 	}
 
 }
