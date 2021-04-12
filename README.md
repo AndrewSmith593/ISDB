@@ -32,7 +32,19 @@
   ISDB was developed with the following languages and tools: Java, Javascript, HTML, CSS, Spring Boot, Thymeleaf, Maven, Ajax, Spring Data JPA using the JpaRepository interface
 
   ## <a id='User Stories' style='color:white;'>User Stories</a>
-Log in and go to the 'Create' page to make your own sandwich. Give it a name, and click 'Save Sandwich'. Navigate to 'My Sandwiches' to view your previously made sandwiches. Click 'Edit' to alter your sandwich, or 'Delete' to get rid of it. The 'Menu' page contains a list of popular sandwiches that you can edit to your liking and save as a new sandwich in your account.
+  New users create an account with a username, email, and password.
+  
+Returning users log in with credentials.
+
+Go to the 'Create' page to make your own sandwich using 9 different bread types and 88 ingredients. Give it a name, type, choose to share it with other users or not. Click 'Save Sandwich' to save it to your account. 
+
+Navigate to 'My Sandwiches' to view your previously made sandwiches. 
+
+Click 'Edit' to alter your sandwich, or 'Delete' to get rid of it. 
+
+Browse the 'Menu' page contains a list of popular sandwiches that you can edit to your liking and save as a new sandwich in your account.
+
+Logout when finished.
 
   ## <a id='Technical Challenges' style='color:white;'>Technical Challenges</a>
   
