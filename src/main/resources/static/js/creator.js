@@ -40,6 +40,7 @@ function addBread() {
 
 	if ($(".bread").length) {
 		$(".bread").remove()
+		$("#breadBox").remove()
 	}
 
 	makeIngredient("sandwichBox", "bread", breadType)
